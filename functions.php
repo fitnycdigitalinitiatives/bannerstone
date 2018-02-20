@@ -28,7 +28,8 @@ class OpenSeadragon
   public function render($item)
   {
     if ($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) {
-      $html = '<div class="tab-content" id="pills-tabContent">';
+      $html = '<div class="card" id="viewer">';
+      $html .= '<div class="tab-content card-img-top" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
@@ -42,6 +43,7 @@ class OpenSeadragon
       }
       $html .= '</div>';
       $html .= $this->openseadragon_create_tabs($fitdil_data_json_array);
+      $html .= '</div>';
       return $html;
     }
   }
@@ -82,18 +84,18 @@ class OpenSeadragon
   }
   private function openseadragon_create_tabs($fitdil_data_json_array)
   {
-    $html = '<ul class="nav justify-content-center" id="pills-tab" role="tablist">';
+    $html = '<div class="card-body"><ul class="nav justify-content-center" id="pills-tab" role="tablist">';
     $tab_id = 1;
     foreach ($fitdil_data_json_array as $fitdil_data_json) {
       $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
       $url_suffix = $fitdil_data["image-url"];
       $thumbnail_url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
       $html .= '<li class="nav-item"><a class="nav-link' . ($tab_id == 1 ? ' active' : '') . '" id="openseadragon-' . $tab_id . '-tab" data-toggle="pill" href="#openseadragon-' . $tab_id . '" role="tab" aria-controls="pills-home" aria-selected="true">';
-      $html .= '<div class="card"><img class="card-img-top" src="' . $thumbnail_url . '"/></div>';
+      $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '"/>';
       $html .= '</a></li>';
       $tab_id++;
     }
-    $html .= '</ul>';
+    $html .= '</ul></div>';
     return $html;
   }
 }

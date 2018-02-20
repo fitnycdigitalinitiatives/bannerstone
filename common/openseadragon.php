@@ -1,6 +1,6 @@
 <?php $button_path = src('images/', 'javascripts/openseadragon');?>
 <?php $unique_id = "openseadragon_".hash("md4", html_escape($hash)); ?>
-<div class="tab-pane card fade <?php if ($panel_id == 1) { echo 'show active'; } ?>" id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel" aria-labelledby="image-panel-<?php echo $panel_id; ?>">
+<div class="tab-pane fade <?php if ($panel_id == 1) { echo 'show active'; } ?>" id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel" aria-labelledby="image-panel-<?php echo $panel_id; ?>">
 	<div class="openseadragon-frame embed-responsive embed-responsive-16by9">
 		<div class="openseadragon embed-responsive-item" id="<?php echo $unique_id; ?>">
 			<script type="text/javascript">

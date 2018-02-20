@@ -13,10 +13,12 @@
     <div class="card-columns">
       <?php foreach (loop('items') as $item): ?>
         <a href="<?php echo record_url($item, null, true); ?>">
-          <div class="card text-muted">
+          <div class="card">
             <img class="card-img-top" src="<?php echo thumbnail_url($item); ?>" alt="<?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
-            <h6 class="card-title"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h6>
-            <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+            <div class="card-body">
+              <h5 class="card-title"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h5>
+              <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+            </div>
           </div>
         </a>
       <?php endforeach; ?>
