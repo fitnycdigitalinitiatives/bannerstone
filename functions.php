@@ -88,14 +88,48 @@ class OpenSeadragon
     $tab_id = 1;
     foreach ($fitdil_data_json_array as $fitdil_data_json) {
       $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-      $url_suffix = $fitdil_data["image-url"];
-      $thumbnail_url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
+      $record_name = $fitdil_data["record-name"];
+      $record_id = $fitdil_data["record-id"];
+      $thumbnail_url = 'https://fitdil.fitnyc.edu/media/thumb/' . $record_id . '/' . $record_name . '/';
       $html .= '<li class="nav-item"><a class="nav-link' . ($tab_id == 1 ? ' active' : '') . '" id="openseadragon-' . $tab_id . '-tab" data-toggle="pill" href="#openseadragon-' . $tab_id . '" role="tab" aria-controls="pills-home" aria-selected="true">';
       $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '"/>';
       $html .= '</a></li>';
       $tab_id++;
     }
-    $html .= '</ul></div>';
+    $html .= '</ul>';
+    $html .= <<<EOT
+    <button class="btn btn-secondary btn-arrow btnPrevious float-left" aria-label="Previous" role="button">
+      <i class="material-icons">keyboard_arrow_left</i>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="btn btn-secondary btn-arrow btnNext float-right" aria-label="Next" role="button">
+      <i class="material-icons">keyboard_arrow_right</i>
+      <span class="sr-only">Previous</span>
+    </button>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.btnNext').click(function(){
+          var next = $('#viewer .nav-item').has('a.active').next('li');
+          if (next.length) {
+            $('#viewer .nav-item').has('a.active').next('li').find('a').trigger('click');
+          }
+          else {
+            $("#viewer .card-body .nav li:first").find('a').trigger('click');
+          }
+        });
+        $('.btnPrevious').click(function(){
+          var prev = $('#viewer .nav-item').has('a.active').prev('li');
+          if (prev.length) {
+            $('#viewer .nav-item').has('a.active').prev('li').find('a').trigger('click');
+          }
+          else {
+            $("#viewer .card-body .nav li:last").find('a').trigger('click');
+          }
+        });
+      });
+    </script>
+EOT;
+    $html .= '</div>';
     return $html;
   }
 }

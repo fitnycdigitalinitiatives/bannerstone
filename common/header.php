@@ -30,7 +30,7 @@
     ?>
 
     <!-- Need more JavaScript files? Include them here -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <?php
@@ -45,7 +45,7 @@
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <?php echo link_to_home_page('<img src="' . img('fit_logo.png') . '" srcset="' . img('fit_logo.png') . ' 1x, ' . img('fit_logo_retina.png') . ' 2x" height="30" class="d-inline-block align-top" alt="FIT"> Archaic Bannerstone Project', array('class' => 'navbar-brand')); ?>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

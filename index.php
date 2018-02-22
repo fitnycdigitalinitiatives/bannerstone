@@ -8,11 +8,11 @@
   <a class="btn btn-light btn-arrow" href="#about" role="button"><i class="material-icons">keyboard_arrow_down</i></a>
 </div>
 
-<div class="container">
+<div class="container" id="about">
   <div class="row">
     <div class="col-md-8">
       <?php fire_plugin_hook('public_home', array('view' => $this)); ?>
-      <h2 class="pt-4" id="about">About the FIT Archaic Bannerstone Project</h2>
+      <h2 class="pt-5">About the FIT Archaic Bannerstone Project</h2>
       <p class="lead">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
     </div>
@@ -43,4 +43,4 @@
 
 
 
-<?php echo foot(); ?>
+<?php echo foot(array('bodyid'=>'home')); ?>
