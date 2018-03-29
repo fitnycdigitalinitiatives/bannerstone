@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <?php
         queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
-        queue_css_url('https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i');
+        queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i');
         queue_css_file('style');
         echo head_css();
     ?>
@@ -43,19 +43,38 @@
     <![endif]-->
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
-    <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
+  <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <?php echo link_to_home_page('<img src="' . img('fit_logo.png') . '" srcset="' . img('fit_logo.png') . ' 1x, ' . img('fit_logo_retina.png') . ' 2x" height="30" class="d-inline-block align-top" alt="FIT"> Archaic Bannerstone Project', array('class' => 'navbar-brand')); ?>
+  <div class="container">
+    <header class="pt-3">
+      <div class="text-center">
+        <?php echo link_to_home_page('<img src="' . img('bannerstone-logo.png') . '"alt="FIT Archaic Bannerstone Project" id="logo">'); ?>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <?php echo public_nav_main_bootstrap(); ?>
-				<?php echo search_form(array('show_advanced' => false, 'form_attributes' => array('class' => 'form-inline my-2 my-lg-0'))); ?>
       </div>
-    </nav>
-    <main id="content" role="main" class="pb-5">
-          <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
+    </header>
+    <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-center">
+        <a class="p-2 text-dark nav-link" href="#">Bannerstones</a>
+        <a class="p-2 text-dark nav-link" href="#">Collections</a>
+        <a class="p-2 text-dark nav-link" href="#">Essays</a>
+        <a class="p-2 text-dark nav-link" href="#">Resources</a>
+        <a class="p-2 text-dark nav-link" href="#">Blog</a>
+        <a class="p-2 text-dark nav-link" href="#">Search</a>
+      </nav>
+    </div>
+  </div>
+
+
+  <nav class="navbar navbar-expand-md navbar-light bg-white d-none">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+      <?php echo public_nav_main_bootstrap(); ?>
+			<?php echo search_form(array('show_advanced' => false, 'form_attributes' => array('class' => 'form-inline my-2 my-lg-0'))); ?>
+    </div>
+  </nav>
+  <main id="content" role="main" class="pb-5">
+        <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

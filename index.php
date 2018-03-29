@@ -1,10 +1,6 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 
 <div class="jumbotron" id="splash">
-  <div class="container">
-    <h1 class="display-1 d-none d-md-block">Archaic Bannerstone Project</h1>
-    <h1 class="display-4 d-block d-md-none">Archaic Bannerstone Project</h1>
-  </div>
   <a class="btn btn-light btn-arrow" href="#about" role="button"><i class="material-icons">keyboard_arrow_down</i></a>
 </div>
 
