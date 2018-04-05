@@ -49,14 +49,14 @@
     <header class="py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-2 pt-1">
-          <img src="<?php echo img('stone-logo.png'); ?>"alt="Bannerstone logo" id="logo">
+
         </div>
         <div class="col-8 text-center">
-          <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'text-dark header-logo')); ?>
+          <img src="<?php echo img('bannerstone-logo.png'); ?>" alt="Bannerstone logo">
         </div>
         <div class="col-2 d-flex justify-content-end align-items-center">
           <a  href="fitnyc.edu">
-            <img src="<?php echo img('fit-logo.png'); ?>"alt="Fashion Institute of Technology logo" id="logo">
+            
           </a>
         </div>
       </div>
