@@ -4,8 +4,7 @@ body {
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-variant: small-caps;
 }
 footer {
   background-color: #343a40;
@@ -15,18 +14,38 @@ footer img {
   height: 45px;
   margin-bottom: 1rem;
 }
-header #logo {
-  height: 60px;
+header {
+  line-height: 1;
 }
-.nav-scroller {
+.header-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   font-variant: small-caps;
 }
-.nav-scroller .nav a:hover {
+.header-logo:hover {
   text-decoration: none;
-  border-bottom: 2px solid #f9683b;
+}
+header #logo {
+  height: 30px;
+}
+.navbar {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+}
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding: 0;
+    border-bottom: .25rem solid transparent;
+  }
+  .navbar-expand-md .navbar-nav .nav-link:hover {
+    border-bottom-color: #f9683b;
+  }
+  .navbar-expand-md .navbar-nav .nav-item.active .nav-link {
+    border-bottom-color: #f9683b;
+  }
+  .navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
+    margin-left: 2rem;
+  }
 }
 .btn.btn-arrow {
   border-radius: 50%;
@@ -44,7 +63,6 @@ header #logo {
 #splash.jumbotron {
   min-height: calc(100vh - 56px);
   background-color: initial;
-  background-image: url('../images/bannerstone-hp-4.jpg');
   background-repeat: no-repeat;
   background-position: center;
   padding-top: calc(50vh - (56px + 5.5rem));

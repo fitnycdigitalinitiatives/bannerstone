@@ -45,36 +45,38 @@
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
   <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
-  <div class="container">
-    <header class="pt-3">
-      <div class="text-center">
-        <?php echo link_to_home_page('<img src="' . img('bannerstone-logo.png') . '"alt="FIT Archaic Bannerstone Project" id="logo">'); ?>
-
+  <div class="container d-none d-md-block">
+    <header class="py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-2 pt-1">
+          <img src="<?php echo img('stone-logo.png'); ?>"alt="Bannerstone logo" id="logo">
+        </div>
+        <div class="col-8 text-center">
+          <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'text-dark header-logo')); ?>
+        </div>
+        <div class="col-2 d-flex justify-content-end align-items-center">
+          <a  href="fitnyc.edu">
+            <img src="<?php echo img('fit-logo.png'); ?>"alt="Fashion Institute of Technology logo" id="logo">
+          </a>
+        </div>
       </div>
     </header>
-    <div class="nav-scroller py-1 mb-2">
-      <nav class="nav d-flex justify-content-center">
-        <a class="p-2 text-dark nav-link" href="#">Bannerstones</a>
-        <a class="p-2 text-dark nav-link" href="#">Collections</a>
-        <a class="p-2 text-dark nav-link" href="#">Essays</a>
-        <a class="p-2 text-dark nav-link" href="#">Resources</a>
-        <a class="p-2 text-dark nav-link" href="#">Blog</a>
-        <a class="p-2 text-dark nav-link" href="#">Search</a>
-      </nav>
-    </div>
   </div>
 
 
-  <nav class="navbar navbar-expand-md navbar-light bg-white d-none">
+  <nav class="navbar navbar-expand-md bg-white sticky-top">
+    <div class="container">
+      <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-      <?php echo public_nav_main_bootstrap(); ?>
-			<?php echo search_form(array('show_advanced' => false, 'form_attributes' => array('class' => 'form-inline my-2 my-lg-0'))); ?>
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+        <?php echo public_nav_main_bootstrap(); ?>
+  			<?php echo search_form(array('show_advanced' => false, 'form_attributes' => array('class' => 'd-none form-inline my-2 my-lg-0'))); ?>
+      </div>
     </div>
   </nav>
+
   <main id="content" role="main" class="pb-5">
         <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
