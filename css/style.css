@@ -1,10 +1,9 @@
 /*! General */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
-  font-variant: small-caps;
+  font-family: 'Playfair Display', serif;
 }
 footer {
   background-color: #343a40;
@@ -19,18 +18,18 @@ header {
 }
 .header-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
+  font-size: 4rem;
+  font-weight: 500;
   font-variant: small-caps;
 }
 .header-logo:hover {
   text-decoration: none;
 }
-header #logo {
-  height: 30px;
+header #fit-logo {
+  margin-left: -61px;
 }
 .navbar {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  font-family: 'Playfair Display', serif;
 }
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-nav .nav-link {
@@ -60,39 +59,30 @@ header #logo {
   font-size: 3rem;
 }
 /*! Homepage */
-#splash.jumbotron {
-  min-height: calc(100vh - 56px);
-  background-color: initial;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding-top: calc(50vh - (56px + 5.5rem));
+
+#large-img img {
+  width: 900px;
+  border: 1px solid rgba(0,0,0,.125);
 }
-/* Portrait */
-@media screen and (orientation:portrait) {
-   #splash.jumbotron {
-     background-size: cover;
-   }
+#small-img img  {
+  width: calc((900px / 3) - 30px);
+  margin-bottom: 30px;
+  border: 1px solid rgba(0,0,0,.125);
 }
-/* Landscape */
-@media screen and (orientation:landscape) {
-  #splash.jumbotron {
-    background-size: contain;
-  }
+#small-img #small-bottom {
+  margin-bottom: 0;
 }
-#home #splash .btn-arrow {
-  position: absolute;
-  bottom: -1rem;
-  left: calc(50% - 2rem);
-}
-#home #about {
-  padding-top: 56px;
+#home #about p:first-child::first-letter {
+  float: left;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.25rem;
+  line-height: .9;
+  padding-right: 8px;
+  padding-left: 3px;
 }
 
 /*! Browse */
 
-.items.browse main {
-  background-color: #e9ecef;
-}
 .card-columns {
   column-gap: 2rem;
   column-count: 1;

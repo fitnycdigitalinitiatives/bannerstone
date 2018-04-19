@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <?php
         queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
-        queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i');
+        queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Playfair+Display:400,400i,700,700i');
         queue_css_file('style');
         echo head_css();
     ?>
@@ -46,25 +46,20 @@
   <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
   <div class="container d-none d-md-block">
-    <header class="py-3">
-      <div class="row flex-nowrap justify-content-between align-items-center">
-        <div class="col-2 pt-1">
-          <img src="<?php echo img('stone-logo.png'); ?>"alt="Bannerstone logo" id="logo">
+    <header class="pt-4">
+      <div class="row flex-nowrap justify-content-center align-items-center">
+        <div class="col-auto" id="fit-logo">
+          <img src="<?php echo img('fit-logo.png'); ?>"alt="Fashion Institute of Technology logo">
         </div>
-        <div class="col-8 text-center">
+        <div class="col-auto text-center">
           <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'text-dark header-logo')); ?>
-        </div>
-        <div class="col-2 d-flex justify-content-end align-items-center">
-          <a  href="fitnyc.edu">
-            <img src="<?php echo img('fit-logo.png'); ?>"alt="Fashion Institute of Technology logo" id="logo">
-          </a>
         </div>
       </div>
     </header>
   </div>
 
 
-  <nav class="navbar navbar-expand-md bg-white sticky-top">
+  <nav class="navbar navbar-expand-md bg-white sticky-top mb-md-2 py-md-3">
     <div class="container">
       <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
