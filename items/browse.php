@@ -3,24 +3,24 @@
     echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 ?>
 
-<div class="container pt-4">
+<div class="container" id="grid">
   <?php if ($total_results > 0): ?>
 
     <!-- Header -->
-    <h4 class="text-muted">Showing <?php echo $total_results; ?> items total</h4>
+    <h1 class="text-center mb-5">Showing <?php echo $total_results; ?> items total</h1>
 
     <!-- Grid -->
-    <div class="card-columns">
+    <div class="card-deck">
       <?php foreach (loop('items') as $item): ?>
-        <a href="<?php echo record_url($item, null, true); ?>">
-          <div class="card">
-            <img class="card-img-top" src="<?php echo thumbnail_url($item); ?>" alt="<?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h5>
-              <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
-            </div>
-          </div>
-        </a>
+        <div class="card">
+          <a class="text-dark" href="<?php echo record_url($item, null, true); ?>">
+            <div class="card-push"></div>
+            <img class="card-img" src="<?php echo thumbnail_url($item); ?>" alt="<?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
+            <div class="card-push"></div>
+            <h3 class="card-title text-center"><?php echo metadata($item, array('Item Type Metadata', 'Accession')); ?><br><?php echo metadata($item, array('Dublin Core', 'Type')); ?></h3>
+            <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+          </a>
+        </div>
       <?php endforeach; ?>
     </div>
 
@@ -28,10 +28,10 @@
     <?php echo pagination_links(); ?>
 
     <!-- Meta -->
-    <div id="outputs">
+    <!-- <div id="outputs">
         <span class="outputs-label"><?php echo __('Output Formats'); ?></span>
         <?php echo output_format_list(false); ?>
-    </div>
+    </div> -->
 
   <!-- No Results -->
   <?php else : ?>

@@ -1,13 +1,14 @@
 <?php
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
-  <div class="jumbotron">
-    <div class="container">
-      <?php
-      $convert = new OpenSeadragon;
-      echo $convert->render($item);
-      ?>
-    </div>
+  <div class="container">
+    <!-- Header -->
+    <h1 class="text-center mb-5"><?php echo metadata($item, array('Item Type Metadata', 'Accession')); ?></h1>
+    <!-- Viewer -->
+    <?php
+    $convert = new OpenSeadragon;
+    echo $convert->render($item);
+    ?>
   </div>
 
   <div class="container">

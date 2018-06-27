@@ -18,6 +18,21 @@ function thumbnail_url($item) {
   }
 }
 
+// Returns 400x400 thumbnail for first image of that bannerstone type
+function type_thumbnail($item, $tag_name) {
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => 1))) {
+    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+    $url_suffix = $fitdil_data["image-url"];
+    $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
+    $title = metadata($item, array('Dublin Core', 'Title'));
+    $thumb = '<img class="img-fluid align-self-center" src="' . $url . '" alt="' . $title . '">';
+    $html = $thumb;
+    $html .= '<h2 class="text-dark">';
+    $html .= $tag_name;
+    $html .= '</h2>';
+    return $html;
+  }
+}
 
 /**
  * Implements OpenSeadragon
