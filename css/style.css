@@ -218,9 +218,14 @@ ul.leaders span + span {
 .items.show #viewer.card {
   border: 0;
 }
+.items.show #viewer.card .tab-content>.active {
+  display: flex;
+}
 .items.show #viewer.card .card-img-top {
   border-radius: 0;
   border: 1px solid rgba(0,0,0,.125);
+  height: 500px;
+  width: auto;
 }
 #viewer .card-img-top:focus, #viewer .tab-pane:focus, .openseadragon-frame:focus, .openseadragon:focus, .openseadragon-container:focus, .openseadragon-canvas:focus {
   outline: none;

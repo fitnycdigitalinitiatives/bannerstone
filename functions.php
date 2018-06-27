@@ -44,16 +44,17 @@ class OpenSeadragon
   {
     if ($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) {
       $html = '<div class="card" id="viewer">';
-      $html .= '<div class="tab-content card-img-top" id="pills-tabContent">';
+      $html .= '<div class="tab-content" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
         $url_suffix = $fitdil_data["image-url"];
         $url = 'https://fitdil.fitnyc.edu' . $url_suffix;
+        $static_image = $url . '400x400/';
         $width = $fitdil_data["width"];
         $height = $fitdil_data["height"];
         $pyramid_json = $this->openseadragon_create_pyramid($url, $width, $height);
-        $html .= get_view()->partial('common/openseadragon.php', array('pyramid_json' => $pyramid_json, 'hash' => $url_suffix, 'panel_id' => $panel_id));
+        $html .= get_view()->partial('common/openseadragon.php', array('pyramid_json' => $pyramid_json, 'hash' => $url_suffix, 'panel_id' => $panel_id, 'static_image' => $static_image));
         $panel_id++;
       }
       $html .= '</div>';
