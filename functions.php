@@ -43,22 +43,23 @@ class OpenSeadragon
   public function render($item)
   {
     if ($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) {
-      $html = '<div class="card" id="viewer">';
-      $html .= '<div class="tab-content" id="pills-tabContent">';
+      $html = '<div class="row" id="viewer">';
+      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array);
+      $html .= '<div class="tab-content col-12 order-first mb-5" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
         $url_suffix = $fitdil_data["image-url"];
         $url = 'https://fitdil.fitnyc.edu' . $url_suffix;
-        $static_image = $url . '400x400/';
+        $static_image = $url . '750x500/';
         $width = $fitdil_data["width"];
         $height = $fitdil_data["height"];
         $pyramid_json = $this->openseadragon_create_pyramid($url, $width, $height);
         $html .= get_view()->partial('common/openseadragon.php', array('pyramid_json' => $pyramid_json, 'hash' => $url_suffix, 'panel_id' => $panel_id, 'static_image' => $static_image));
         $panel_id++;
       }
+      $html .= $this->openseadragon_create_buttons();
       $html .= '</div>';
-      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array);
       $html .= '</div>';
       return $html;
     }
@@ -95,12 +96,12 @@ class OpenSeadragon
     $pyramid[] = $url_4 + $dimensions_4;
     $pyramid[] = $url_3 + $dimensions_3;
     $pyramid[] = $url_2 + $dimensions_2;
-    // $pyramid[] = $url_1 + $dimensions_1; //
+    $pyramid[] = $url_1 + $dimensions_1;
     return json_encode($pyramid);
   }
   private function openseadragon_create_tabs($fitdil_data_json_array)
   {
-    $html = '<div class="card-body"><ul class="nav justify-content-center" id="pills-tab" role="tablist">';
+    $html = '<div class="col-12 order-last mb-5"><ul class="nav justify-content-center" id="pills-tab" role="tablist">';
     $tab_id = 1;
     foreach ($fitdil_data_json_array as $fitdil_data_json) {
       $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
@@ -113,7 +114,12 @@ class OpenSeadragon
       $tab_id++;
     }
     $html .= '</ul>';
-    $html .= <<<EOT
+    $html .= '</div>';
+    return $html;
+  }
+  private function openseadragon_create_buttons()
+  {
+    $html = <<<EOT
     <button class="btn btn-secondary btn-arrow btnPrevious float-left" aria-label="Previous" role="button">
       <i class="material-icons">keyboard_arrow_left</i>
       <span class="sr-only">Previous</span>
@@ -145,7 +151,6 @@ class OpenSeadragon
       });
     </script>
 EOT;
-    $html .= '</div>';
-    return $html;
+  return $html;
   }
 }

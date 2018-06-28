@@ -215,20 +215,31 @@ ul.leaders span + span {
 }
 
 /*! Show */
-.items.show #viewer.card {
+.items.show #viewer {
   border: 0;
 }
-.items.show #viewer.card .tab-content>.active {
+.items.show #viewer .tab-pane {
+  background-image: url('../images/loading-2.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
+}
+.items.show #viewer .tab-content>.active {
   display: flex;
 }
-.items.show #viewer.card .card-img-top {
+.items.show #viewer .os-static-image {
   border-radius: 0;
   border: 1px solid rgba(0,0,0,.125);
   height: 500px;
+  min-width: 100px;
   width: auto;
+  cursor: zoom-in;
 }
-#viewer .card-img-top:focus, #viewer .tab-pane:focus, .openseadragon-frame:focus, .openseadragon:focus, .openseadragon-container:focus, .openseadragon-canvas:focus {
-  outline: none;
+.openseadragon {
+  background-image: url('../images/loading.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
 }
 .items.show .nav-item #nav-image {
   height: 3rem;
@@ -245,7 +256,7 @@ ul.leaders span + span {
   height: 3rem;
   width: 3rem;
   position: absolute;
-  top: calc((623.5px / 2) - 24px);
+  top: calc((500px / 2) - 24px); /*! Half of the image height minus half the button size */
 }
 .items.show #viewer .btnPrevious {
   left: -24px
