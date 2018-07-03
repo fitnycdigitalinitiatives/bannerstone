@@ -120,11 +120,11 @@ class OpenSeadragon
   private function openseadragon_create_buttons()
   {
     $html = <<<EOT
-    <button class="btn btn-secondary btn-arrow btnPrevious float-left" aria-label="Previous" role="button">
+    <button class="btn btn-arrow btnPrevious float-left" aria-label="Previous" role="button">
       <i class="material-icons">keyboard_arrow_left</i>
       <span class="sr-only">Previous</span>
     </button>
-    <button class="btn btn-secondary btn-arrow btnNext float-right" aria-label="Next" role="button">
+    <button class="btn btn-arrow btnNext float-right" aria-label="Next" role="button">
       <i class="material-icons">keyboard_arrow_right</i>
       <span class="sr-only">Previous</span>
     </button>

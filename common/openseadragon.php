@@ -5,7 +5,7 @@
 	<div class="openseadragon" id="<?php echo $unique_id; ?>">
 		<script type="text/javascript">
 			$('#openseadragon-image-<?php echo $panel_id; ?>').on("load", function() {
-				$(this).css('border', '1px solid rgba(0,0,0,.125)');
+				$('.os-static-image').css('border', '1px solid rgba(0,0,0,.125)');
 			});
 			$('#openseadragon-image-<?php echo $panel_id; ?>').click(function(){
 				var viewer = OpenSeadragon({

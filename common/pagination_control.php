@@ -52,20 +52,4 @@ if ($this->pageCount > 1):
         <?php endif; ?>
     </ul>
 </nav>
-<!-- Floating Arrows -->
-<div class="row browse-nav d-none d-md-block">
-    <div class="col-xs-12">
-      <!-- Previous page link -->
-      <?php if (isset($this->previous)): ?>
-        <?php $getParams['page'] = $previous; ?>
-        <a href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>" aria-label="Previous" role="button" class="btn btn-secondary btn-arrow previous"><i class="material-icons">keyboard_arrow_left</i><span class="sr-only">Previous</span></a>
-      <?php endif; ?>
-
-      <!-- Next page link -->
-      <?php if (isset($this->next)): ?>
-        <?php $getParams['page'] = $next; ?>
-        <a href="<?php echo html_escape($this->url(array(), null, $getParams)); ?>" aria-label="Next" role="button" class="btn btn-secondary btn-arrow next"><i class="material-icons">keyboard_arrow_right</i><span class="sr-only">Next</span></a>
-      <?php endif; ?>
-    </div>
-</div>
 <?php endif; ?>

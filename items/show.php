@@ -3,7 +3,7 @@
 ?>
   <div class="container">
     <!-- Header -->
-    <h1 class="text-center mb-5"><?php echo metadata($item, array('Item Type Metadata', 'Accession')); ?></h1>
+    <h1 class="text-center mb-5"><?php echo metadata($item, array('Item Type Metadata', 'Catalog/Accession#')); ?></h1>
     <!-- Viewer -->
     <?php
     $convert = new OpenSeadragon;
@@ -12,9 +12,16 @@
   </div>
 
   <div class="container">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center" id="metadata">
       <div class="col-md-6">
         <h2 class="text-center mb-5">About this Bannerstone</h2>
+        <!-- If the item belongs to a collection, the following creates a link to that collection. -->
+        <?php if (metadata('item', 'Collection Name')): ?>
+          <div id="item-collection" class="element">
+            <h3><?php echo __('Collection'); ?></h3>
+            <div class="element-text"><?php echo link_to_items_browse(metadata('item', 'Collection Name'), array('collection' => metadata(get_collection_for_item(), 'id')), array('class' => 'text-dark')); ?></div>
+          </div>
+        <?php endif; ?>
         <?php echo all_element_texts('item'); ?>
         <!-- The following prints a citation for this item. -->
         <div id="item-citation" class="element">
@@ -28,10 +35,6 @@
         </div>
 
         <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
-        <ul class="pager">
-            <li class="previous"><?php echo link_to_previous_item_show(); ?></li>
-            <li class="next"><?php echo link_to_next_item_show(); ?></li>
-        </ul>
       </div>
     </div>
   </div>
