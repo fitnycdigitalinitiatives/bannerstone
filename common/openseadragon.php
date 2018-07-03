@@ -4,6 +4,9 @@
 	<img class="os-static-image mx-auto" src="<?php echo $static_image; ?>" id="openseadragon-image-<?php echo $panel_id; ?>" />
 	<div class="openseadragon" id="<?php echo $unique_id; ?>">
 		<script type="text/javascript">
+			$('#openseadragon-image-<?php echo $panel_id; ?>').on("load", function() {
+				$(this).css('border', '1px solid rgba(0,0,0,.125)');
+			});
 			$('#openseadragon-image-<?php echo $panel_id; ?>').click(function(){
 				var viewer = OpenSeadragon({
 					id: "<?php echo $unique_id; ?>",
