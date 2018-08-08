@@ -37,32 +37,35 @@ header {
 header #fit-logo {
   margin-left: -61px;
 }
-.navbar {
+#main-nav.navbar {
   font-family: 'Playfair Display', serif;
 }
-.navbar .dropdown-menu {
+#main-nav.navbar .dropdown-menu {
   border: none;
 }
-.navbar .dropdown-item.active, .navbar .dropdown-item:active {
+#main-nav.navbar .dropdown-item.active, .navbar .dropdown-item:active {
   background-color: #fff;
 }
-.navbar .dropdown-item:hover {
+#main-nav.navbar .dropdown-item:hover {
   background-color: #fff;
 }
 @media (min-width: 768px) {
-  .navbar-expand-md .navbar-nav .nav-link, .navbar .dropdown-item {
+  #main-nav.navbar-expand-md .navbar-nav .nav-link, #main-nav.navbar .dropdown-item {
     padding: 0;
     border-bottom: .25rem solid transparent;
   }
-  .navbar-expand-md .navbar-nav .nav-link:hover, .navbar .dropdown-item:hover {
+  #main-nav.navbar-expand-md .navbar-nav .nav-link:hover, #main-nav.navbar .dropdown-item:hover {
     border-bottom-color: #f9683b;
   }
-  .navbar-expand-md .navbar-nav .nav-item.active .nav-link, .navbar .dropdown-item.active, .navbar .dropdown-item:active {
+  #main-nav.navbar-expand-md .navbar-nav .nav-item.active .nav-link, #main-nav.navbar .dropdown-item.active, #main-nav.navbar .dropdown-item:active {
     border-bottom-color: #f9683b;
   }
-  .navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
+  #main-nav.navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
     margin-left: 2rem;
   }
+}
+main {
+  margin-top: 3rem;
 }
 ul.leaders {
     max-width: 40em;
@@ -91,6 +94,9 @@ ul.leaders span + span {
     position: relative;
     z-index: 1;
 }
+section {
+  margin-bottom: 3rem;
+}
 /*! Homepage */
 
 #large-img img {
@@ -105,7 +111,7 @@ ul.leaders span + span {
 #small-img #small-bottom {
   margin-bottom: 0;
 }
-#home #about p:first-child::first-letter {
+#home #about section p:first-of-type::first-letter {
   float: left;
   font-family: 'Cormorant Garamond', serif;
   font-size: 3.25rem;
@@ -174,31 +180,30 @@ ul.leaders span + span {
   }
 }
 /*! Show */
-.items.show #viewer {
+#viewer {
   border: 0;
 }
-.items.show #viewer .tab-pane {
+#viewer .tab-pane {
   background-image: url('../images/loading-2.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 4rem 4rem;
+  min-height: 250px;
 }
-.items.show #viewer .tab-content>.active {
-  display: flex;
-}
-.items.show #viewer .os-static-image {
+#viewer .os-static-image {
   border-radius: 0;
-  height: 500px;
-  width: auto;
+  border: 1px solid rgba(0,0,0,.125);
+  max-height: 500px;
+  max-width: 100%;
   cursor: zoom-in;
 }
-.openseadragon {
+.openseadragon.fullpage {
   background-image: url('../images/loading.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 4rem 4rem;
 }
-.items.show .nav-item #nav-image {
+#viewer .nav-item #nav-image {
   height: 3rem;
   width: auto;
   border-color: rgba(0,0,0,.125);
@@ -206,12 +211,12 @@ ul.leaders span + span {
   padding: 0;
   border-radius: 0;
 }
-.items.show .nav-item .nav-link.active #nav-image {
+#viewer .nav-item .nav-link.active #nav-image {
   opacity: 0.2;
 }
-.items.show #viewer .btn-arrow {
+#viewer .btn-arrow {
   position: absolute;
-  top: calc((500px / 2) - 24px); /*! Half of the image height minus half the button size */
+  top: calc(50% - 24px); /*! Half of the image height minus half the button size */
   line-height: 1;
   background-color: transparent;
   padding: 0;
@@ -219,28 +224,37 @@ ul.leaders span + span {
   border: none;
   opacity: 1;
 }
-.items.show #viewer .btn-arrow:active {
+#viewer .btn-arrow:active {
   opacity: .7;
 }
-.btn.btn-arrow:not([disabled]):not(.disabled):active, .btn.btn-arrow:focus {
+.btn:not([disabled]):not(.disabled):active, .btn:focus {
   box-shadow: none;
 }
-.items.show #viewer .btnPrevious {
+#viewer .btnPrevious {
   left: -24px;
 }
-.items.show #viewer .btnNext {
+#viewer .btnNext {
   right: -24px;
 }
-.items.show #viewer .btn-arrow i {
+#viewer .btn-arrow i {
   font-size: 4rem;
 }
-.items.show #metadata h3 {
+#metadata h3 {
   font-size: 1.5rem;
 }
-.items.show #metadata .element {
+#metadata .element {
   margin-bottom: 2rem;
 }
 /* Simple Pages */
+.embed-responsive {
+  background-image: url('../images/loading-2.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 4rem 4rem;
+}
 .embed-responsive-7by5::before {
   padding-top: 140%;
+}
+#resource-list li {
+  margin-bottom: 1rem;
 }

@@ -8,19 +8,28 @@ function public_nav_main_bootstrap() {
     return $nav->render();
 }
 
-// Returns 400x400 thumbnail for first image in set
-function thumbnail_url($item) {
-  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => 0))) {
+// Returns 400x400 thumbnail for image in set, default first image
+function thumbnail_url($item, $index = 0) {
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $url_suffix = $fitdil_data["image-url"];
     $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
     return $url;
   }
 }
+// Returns 800x800 thumbnail for image in set, default first image
+function large_url($item, $index = 0) {
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
+    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+    $url_suffix = $fitdil_data["image-url"];
+    $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '800x800/';
+    return $url;
+  }
+}
 
 // Returns 400x400 thumbnail for first image of that bannerstone type
 function type_thumbnail($item, $tag_name) {
-  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => 1))) {
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => 0))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $url_suffix = $fitdil_data["image-url"];
     $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
@@ -64,7 +73,7 @@ class OpenSeadragon
       return $html;
     }
   }
-  private function openseadragon_create_pyramid($url, $width, $height)
+  public function openseadragon_create_pyramid($url, $width, $height)
   {
     $pyramid = array();
     $url_1 = array('url' => $url);
@@ -120,37 +129,86 @@ class OpenSeadragon
   private function openseadragon_create_buttons()
   {
     $html = <<<EOT
-    <button class="btn btn-arrow btnPrevious float-left" aria-label="Previous" role="button">
+    <button class="btn btn-arrow btnPrevious" aria-label="Previous" role="button">
       <i class="material-icons">keyboard_arrow_left</i>
       <span class="sr-only">Previous</span>
     </button>
-    <button class="btn btn-arrow btnNext float-right" aria-label="Next" role="button">
+    <button class="btn btn-arrow btnNext" aria-label="Next" role="button">
       <i class="material-icons">keyboard_arrow_right</i>
       <span class="sr-only">Previous</span>
     </button>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('.btnNext').click(function(){
+        $('#viewer .btnNext').click(function(){
           var next = $('#viewer .nav-item').has('a.active').next('li');
           if (next.length) {
             $('#viewer .nav-item').has('a.active').next('li').find('a').trigger('click');
           }
           else {
-            $("#viewer .card-body .nav li:first").find('a').trigger('click');
+            $("#viewer .nav li:first").find('a').trigger('click');
           }
         });
-        $('.btnPrevious').click(function(){
+        $('#viewer .btnPrevious').click(function(){
           var prev = $('#viewer .nav-item').has('a.active').prev('li');
           if (prev.length) {
             $('#viewer .nav-item').has('a.active').prev('li').find('a').trigger('click');
           }
           else {
-            $("#viewer .card-body .nav li:last").find('a').trigger('click');
+            $("#viewer .nav li:last").find('a').trigger('click');
           }
         });
       });
     </script>
 EOT;
   return $html;
+  }
+}
+
+/**
+ * Implements OpenSeadragon for Exhibition
+ */
+function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
+{
+  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
+    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+    $url_suffix = $fitdil_data["image-url"];
+    $url = 'https://fitdil.fitnyc.edu' . $url_suffix;
+    if ($imageSize == 'fullsize') {
+      $static_image = large_url($item, $index);
+    }
+    else {
+      $static_image = thumbnail_url($item, $index);
+    }
+    $width = $fitdil_data["width"];
+    $height = $fitdil_data["height"];
+    $hash = hash("md4", html_escape($url_suffix));
+    $title = $fitdil_data["record-name"];
+    $openseadragon = new OpenSeadragon;
+    $pyramid_json = $openseadragon->openseadragon_create_pyramid($url, $width, $height);
+    $html = get_view()->partial('common/openseadragonExhibit.php', array('pyramid_json' => $pyramid_json, 'hash' => $hash, 'static_image' => $static_image, 'title' => $title));
+    $link = record_url($item, null, true);
+    // Begin Modal //
+    $html .= '<!-- Button trigger modal --><button class="btn btn-inform" id="item-info" aria-label="Info" role="button" data-toggle="modal" data-target="#modal-' . $hash . '"><i class="material-icons">info</i><span class="sr-only">Info</span></button>';
+    $html .= '<!-- Modal -->
+<div class="modal fade" id="modal-' . $hash . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">About this Bannerstone</h2>
+        <button type="button" id="close-modal" class="btn btn-close" data-dismiss="modal" aria-label="Close">
+          <i class="material-icons">close</i>
+          <span class="sr-only">Close Pop-up</span>
+        </button>
+      </div>
+      <div class="modal-body" id="metadata">
+        '. all_element_texts($item) . '
+      </div>
+      <div class="modal-footer">
+        <a href="' . $link . '" role="button" class="btn btn-primary">View full record</a>
+      </div>
+    </div>
+  </div>
+</div>';
+    return $html;
   }
 }

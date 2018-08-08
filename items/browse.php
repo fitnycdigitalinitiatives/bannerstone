@@ -17,7 +17,7 @@
             <div class="card-push"></div>
             <img class="card-img" src="<?php echo thumbnail_url($item); ?>" alt="<?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
             <div class="card-push"></div>
-            <h3 class="card-title text-center"><?php echo metadata($item, array('Item Type Metadata', 'Catalog/Accession#')); ?><br><?php echo metadata($item, array('Item Type Metadata', 'Bannerstone Type')); ?></h3>
+            <h3 class="card-title text-center"><?php echo metadata(get_collection_for_item(), array('Dublin Core', 'Identifier')); ?> <?php echo metadata($item, array('Item Type Metadata', 'Catalog/Accession#')); ?></h3>
             <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
           </a>
         </div>

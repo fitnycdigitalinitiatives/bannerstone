@@ -60,7 +60,7 @@
   </div>
 
 
-  <nav class="navbar navbar-expand-md bg-white sticky-top mb-md-2 py-md-3">
+  <nav class="navbar navbar-expand-md bg-white sticky-top mb-md-2 py-md-3" id="main-nav">
     <div class="container">
       <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,5 +74,5 @@
     </div>
   </nav>
 
-  <main id="content" role="main" class="mt-5">
+  <main id="content" role="main">
         <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
