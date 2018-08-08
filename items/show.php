@@ -3,7 +3,7 @@
 ?>
   <div class="container">
     <!-- Header -->
-    <h1 class="text-center mb-5"><?php echo metadata(get_collection_for_item(), array('Dublin Core', 'Identifier')); ?> <?php echo metadata($item, array('Item Type Metadata', 'Catalog/Accession#')); ?></h1>
+    <h1 class="text-center mb-5"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h1>
     <!-- Viewer -->
     <?php
     $convert = new OpenSeadragon;
