@@ -10,6 +10,12 @@ body {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
+a {
+  color: #f9683b;
+}
+a:hover {
+  color: #f9683b;
+}
 footer {
   background-color: #343a40;
   color: #fff;

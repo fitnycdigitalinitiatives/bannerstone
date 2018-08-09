@@ -7,7 +7,7 @@
   <?php if ($total_results > 0): ?>
 
     <!-- Header -->
-    <h1 class="text-center mb-5">Showing <?php echo $total_results; ?> items total</h1>
+    <h1 class="text-center mb-5">Showing <?php echo $total_results; ?> bannerstones total</h1>
 
     <!-- Grid -->
     <div class="card-deck">

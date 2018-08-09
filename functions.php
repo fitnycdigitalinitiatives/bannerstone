@@ -185,12 +185,13 @@ function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
     $title = $fitdil_data["record-name"];
     $openseadragon = new OpenSeadragon;
     $pyramid_json = $openseadragon->openseadragon_create_pyramid($url, $width, $height);
-    $html = get_view()->partial('common/openseadragonExhibit.php', array('pyramid_json' => $pyramid_json, 'hash' => $hash, 'static_image' => $static_image, 'title' => $title));
+    $html = '<div class="image-container">';
+    $html .= get_view()->partial('common/openseadragonExhibit.php', array('pyramid_json' => $pyramid_json, 'hash' => $hash, 'static_image' => $static_image, 'title' => $title));
     $link = record_url($item, null, true);
     // Begin Modal //
     $html .= '<!-- Button trigger modal --><button class="btn btn-inform" id="item-info" aria-label="Info" role="button" data-toggle="modal" data-target="#modal-' . $hash . '"><i class="material-icons">info</i><span class="sr-only">Info</span></button>';
     $html .= '<!-- Modal -->
-<div class="modal fade" id="modal-' . $hash . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-' . $hash . '" tabindex="-1" role="dialog" aria-labelledby="More Information" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -204,11 +205,12 @@ function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
         '. all_element_texts($item) . '
       </div>
       <div class="modal-footer">
-        <a href="' . $link . '" role="button" class="btn btn-primary">View full record</a>
+        <a href="' . $link . '" role="button" class="btn">View full record</a>
       </div>
     </div>
   </div>
 </div>';
+    $html .= '</div><!-- close container -->';
     return $html;
   }
 }
