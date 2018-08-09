@@ -2,22 +2,22 @@
 
 <div class="container-fluid mb-5" id="banner">
   <div class="row justify-content-md-center">
-    <div class="col-auto" id="large-img">
+    <div class="col-md-auto" id="large-img">
       <img src="<?php echo img('grid_2-1.jpg'); ?>" class="img-fluid" alt="Bannerstone image">
     </div>
-    <div class="col-auto" id="small-img">
+    <div class="col-md-auto" id="small-img">
         <div class="row">
-          <div class="col-auto">
+          <div class="col-md-auto">
             <img src="<?php echo img('grid_2-2.jpg'); ?>" class="img-fluid" id="small-top" alt="Bannerstone image">
           </div>
         </div>
         <div class="row">
-          <div class="col-auto">
+          <div class="col-md-auto">
             <img src="<?php echo img('grid_2-3.jpg'); ?>" class="img-fluid" id="small-middle" alt="Bannerstone image">
           </div>
         </div>
         <div class="row">
-          <div class="col-auto">
+          <div class="col-md-auto">
             <img src="<?php echo img('grid_2-4.jpg'); ?>" class="img-fluid" id="small-bottom" alt="Bannerstone image">
           </div>
         </div>

@@ -33,7 +33,7 @@ header {
 }
 .header-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 500;
   font-variant: small-caps;
 }
@@ -42,6 +42,14 @@ header {
 }
 header #fit-logo {
   margin-left: -61px;
+}
+@media (min-width: 992px) {
+  .header-logo {
+    font-size: 4rem;
+  }
+  header #fit-logo {
+    margin-left: -61px;
+  }
 }
 #main-nav.navbar {
   font-family: 'Playfair Display', serif;
@@ -104,19 +112,45 @@ section {
   margin-bottom: 3rem;
 }
 /*! Homepage */
-
 #large-img img {
-  width: 900px;
   border: 1px solid rgba(0,0,0,.125);
+  width: 100%;
+  margin-bottom: 30px;
 }
 #small-img img  {
-  width: calc((900px / 3) - 30px);
   margin-bottom: 30px;
   border: 1px solid rgba(0,0,0,.125);
+  width: 100%;
 }
 #small-img #small-bottom {
   margin-bottom: 0;
 }
+@media (min-width: 768px) {
+  #large-img img {
+    width: 450px;
+    margin-bottom: 0;
+  }
+  #small-img img  {
+    width: calc((450px / 3) - 30px);
+  }
+}
+@media (min-width: 992px) {
+  #large-img img {
+    width: 600px;
+  }
+  #small-img img  {
+    width: calc((600px / 3) - 30px);
+  }
+}
+@media (min-width: 1200px) {
+  #large-img img {
+    width: 850px;
+  }
+  #small-img img  {
+    width: calc((850px / 3) - 30px);
+  }
+}
+
 #home #about section p:first-of-type::first-letter {
   float: left;
   font-family: 'Cormorant Garamond', serif;
