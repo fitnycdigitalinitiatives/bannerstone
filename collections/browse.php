@@ -13,8 +13,8 @@
           <ul class="leaders">
           <?php foreach (loop('collections') as $collection): ?>
             <li>
-              <span><?php echo link_to_items_browse(metadata($collection, array('Dublin Core', 'Title')), array('collection' => metadata($collection, 'id')), array('class' => 'text-dark')); ?></span>
-              <span><?php echo link_to_items_browse(metadata($collection, 'total_items'), array('collection' => metadata($collection, 'id')), array('class' => 'text-dark')); ?></span>
+              <span><?php echo link_to_items_browse(metadata($collection, array('Dublin Core', 'Title')), array('collection' => metadata($collection, 'id'), 'sort_field' => 'added', 'sort_dir' => 'a'), array('class' => 'text-dark')); ?></span>
+              <span><?php echo link_to_items_browse(metadata($collection, 'total_items'), array('collection' => metadata($collection, 'id'), 'sort_field' => 'added', 'sort_dir' => 'a'), array('class' => 'text-dark')); ?></span>
             </li>
           <?php endforeach; ?>
           </ul>
