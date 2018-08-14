@@ -159,6 +159,14 @@ section {
   padding-right: 8px;
   padding-left: 3px;
 }
+#home #about::before {
+  display: block;
+  content: " ";
+  margin-top: -75px;
+  height: 75px;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 /*! Browse */
 .browse #grid h2 {
