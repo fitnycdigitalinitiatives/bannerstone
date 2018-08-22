@@ -8,21 +8,30 @@ function public_nav_main_bootstrap() {
     return $nav->render();
 }
 
-// Returns 400x400 thumbnail for image in set, default first image
+// Returns thumbnail for image in set, default first image
 function thumbnail_url($item, $index = 0) {
-  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
+  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-    $url_suffix = $fitdil_data["image-url"];
-    $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '400x400/';
+    $record_name = $fitdil_data["record-name"];
+    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
     return $url;
   }
 }
-// Returns 800x800 thumbnail for image in set, default first image
-function large_url($item, $index = 0) {
-  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
+// Returns large image from set, default first image
+function medium_url($item, $index = 0) {
+  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-    $url_suffix = $fitdil_data["image-url"];
-    $url = 'https://fitdil.fitnyc.edu' . $url_suffix . '800x800/';
+    $record_name = $fitdil_data["record-name"];
+    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/600,/0/default.jpg';
+    return $url;
+  }
+}
+// Returns large image from set, default first image
+function large_url($item, $index = 0) {
+  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
+    $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
+    $record_name = $fitdil_data["record-name"];
+    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
     return $url;
   }
 }
@@ -35,20 +44,17 @@ class OpenSeadragon
 
   public function render($item)
   {
-    if ($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) {
+    if (($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
       $html = '<div class="row" id="viewer">';
-      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array);
+      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array, $github_collection);
       $html .= '<div class="tab-content col-12 order-first mb-5" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-        $url_suffix = $fitdil_data["image-url"];
-        $url = 'https://fitdil.fitnyc.edu' . $url_suffix;
-        $static_image = $url . '750x500/';
-        $width = $fitdil_data["width"];
-        $height = $fitdil_data["height"];
-        $pyramid_json = $this->openseadragon_create_pyramid($url, $width, $height);
-        $html .= get_view()->partial('common/openseadragon.php', array('pyramid_json' => $pyramid_json, 'hash' => $url_suffix, 'panel_id' => $panel_id, 'static_image' => $static_image));
+        $record_name = $fitdil_data["record-name"];
+        $static_image = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+        $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
+        $html .= get_view()->partial('common/openseadragon.php', array('info_json_url' => $info_json_url, 'hash' => $record_name, 'panel_id' => $panel_id, 'static_image' => $static_image));
         $panel_id++;
       }
       $html .= $this->openseadragon_create_buttons();
@@ -57,50 +63,14 @@ class OpenSeadragon
       return $html;
     }
   }
-  public function openseadragon_create_pyramid($url, $width, $height)
-  {
-    $pyramid = array();
-    $url_1 = array('url' => $url);
-    $dimensions_1 = array('height' => (int) $height, 'width' => (int) $width);
-    $height_2 = ceil(($height * 3) / 4);
-    $width_2 = ceil(($width * 3) / 4);
-    $dimensions_2 = array('height' => (int) $height_2, 'width' => (int) $width_2);
-    $url_2 = array('url' => $url . $width_2 . 'x' . $height_2 . '/');
-    $height_3 = ceil($height / 2);
-    $width_3 = ceil($width / 2);
-    $dimensions_3 = array('height' => (int) $height_3, 'width' => (int) $width_3);
-    $url_3 = array('url' => $url . $width_3 . 'x' . $height_3 . '/');
-    $height_4 = ceil($height / 4);
-    $width_4 = ceil($width / 4);
-    $dimensions_4 = array('height' => (int) $height_4, 'width' => (int) $width_4);
-    $url_4 = array('url' => $url . $width_4 . 'x' . $height_4 . '/');
-    // Get 400x400 image which is cached from browse page //
-    if ($height >= $width) {
-      $height_5 = 400;
-      $width_5 = floor(($width * 400) / $height);
-    }
-    else {
-      $width_5 = 400;
-      $height_5 = floor(($height * 400) / $width);
-    }
-    $dimensions_5 = array('height' => (int) $height_5, 'width' => (int) $width_5);
-    $url_5 = array('url' => $url . '400x400/');
-    $pyramid[] = $url_5 + $dimensions_5;
-    $pyramid[] = $url_4 + $dimensions_4;
-    $pyramid[] = $url_3 + $dimensions_3;
-    $pyramid[] = $url_2 + $dimensions_2;
-    $pyramid[] = $url_1 + $dimensions_1;
-    return json_encode($pyramid);
-  }
-  private function openseadragon_create_tabs($fitdil_data_json_array)
+  private function openseadragon_create_tabs($fitdil_data_json_array, $github_collection)
   {
     $html = '<div class="col-12 order-last mb-5"><ul class="nav justify-content-center" id="pills-tab" role="tablist">';
     $tab_id = 1;
     foreach ($fitdil_data_json_array as $fitdil_data_json) {
       $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
       $record_name = $fitdil_data["record-name"];
-      $record_id = $fitdil_data["record-id"];
-      $thumbnail_url = 'https://fitdil.fitnyc.edu/media/thumb/' . $record_id . '/' . $record_name . '/';
+      $thumbnail_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
       $html .= '<li class="nav-item"><a class="nav-link' . ($tab_id == 1 ? ' active' : '') . '" id="openseadragon-' . $tab_id . '-tab" data-toggle="pill" href="#openseadragon-' . $tab_id . '" role="tab" aria-controls="pills-home" aria-selected="true">';
       $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '"/>';
       $html .= '</a></li>';
@@ -153,24 +123,19 @@ EOT;
  */
 function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
 {
-  if ($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) {
+  if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
-    $url_suffix = $fitdil_data["image-url"];
-    $url = 'https://fitdil.fitnyc.edu' . $url_suffix;
+    $record_name = $fitdil_data["record-name"];
+    $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
     if ($imageSize == 'fullsize') {
       $static_image = large_url($item, $index);
     }
     else {
       $static_image = thumbnail_url($item, $index);
     }
-    $width = $fitdil_data["width"];
-    $height = $fitdil_data["height"];
-    $hash = hash("md4", html_escape($url_suffix));
-    $title = $fitdil_data["record-name"];
-    $openseadragon = new OpenSeadragon;
-    $pyramid_json = $openseadragon->openseadragon_create_pyramid($url, $width, $height);
+    $hash = hash("md4", html_escape($record_name));
     $html = '<div class="image-container">';
-    $html .= get_view()->partial('common/openseadragonExhibit.php', array('pyramid_json' => $pyramid_json, 'hash' => $hash, 'static_image' => $static_image, 'title' => $title));
+    $html .= get_view()->partial('common/openseadragonExhibit.php', array('info_json_url' => $info_json_url, 'hash' => $hash, 'static_image' => $static_image, 'title' => $record_name));
     $link = record_url($item, null, true);
     // Begin Modal //
     $html .= '<!-- Button trigger modal --><button class="btn btn-inform" id="item-info" aria-label="Info" role="button" data-toggle="modal" data-target="#modal-' . $hash . '"><i class="material-icons">info</i><span class="sr-only">Info</span></button>';
