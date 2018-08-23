@@ -11,7 +11,10 @@
 					minZoomImageRatio: 0.5,
 					maxZoomPixelRatio: 10,
 					controlsFadeDelay: 1000,
-					tileSources: ["<?php echo $info_json_url; ?>"]
+					tileSources: {
+						type: 'legacy-image-pyramid',
+						levels:<?php echo $pyramid_json; ?>
+					}
 				});
 				viewer.setFullScreen(true).addHandler('full-screen', function (data) {
 						if (!data.fullScreen) {
