@@ -19,6 +19,10 @@
     <!-- Will fire plugins that need to include their own files in <head> -->
     <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
 
+    <!-- Icon -->
+    <link rel="icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
+
 
     <!-- Need to add custom and third-party CSS files? Include them here -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
