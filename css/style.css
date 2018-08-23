@@ -250,6 +250,7 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 4rem 4rem;
+  background-color: #000000;
 }
 #viewer .nav-item #nav-image {
   height: 3rem;
