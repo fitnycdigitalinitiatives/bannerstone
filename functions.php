@@ -131,7 +131,7 @@ function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
       $static_image = large_url($item, $index);
     }
     else {
-      $static_image = thumbnail_url($item, $index);
+      $static_image = medium_url($item, $index);
     }
     $hash = hash("md4", html_escape($record_name));
     $html = '<div class="image-container">';
