@@ -134,32 +134,8 @@ function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
       $static_image = medium_url($item, $index);
     }
     $hash = hash("md4", html_escape($record_name));
-    $html = '<div class="image-container">';
-    $html .= get_view()->partial('common/openseadragonExhibit.php', array('info_json_url' => $info_json_url, 'hash' => $hash, 'static_image' => $static_image, 'title' => $record_name));
+    $html = get_view()->partial('common/openseadragonExhibit.php', array('info_json_url' => $info_json_url, 'hash' => $hash, 'static_image' => $static_image, 'title' => $record_name));
     $link = record_url($item, null, true);
-    // Begin Modal //
-    $html .= '<!-- Button trigger modal --><button class="btn btn-inform" id="item-info" aria-label="Info" role="button" data-toggle="modal" data-target="#modal-' . $hash . '"><i class="material-icons">info</i><span class="sr-only">Info</span></button>';
-    $html .= '<!-- Modal -->
-<div class="modal fade" id="modal-' . $hash . '" tabindex="-1" role="dialog" aria-labelledby="More Information" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">About this Bannerstone</h2>
-        <button type="button" id="close-modal" class="btn btn-close" data-dismiss="modal" aria-label="Close">
-          <i class="material-icons">close</i>
-          <span class="sr-only">Close Pop-up</span>
-        </button>
-      </div>
-      <div class="modal-body" id="metadata">
-        '. all_element_texts($item) . '
-      </div>
-      <div class="modal-footer">
-        <a href="' . $link . '" role="button" class="btn">View full record</a>
-      </div>
-    </div>
-  </div>
-</div>';
-    $html .= '</div><!-- close container -->';
     return $html;
   }
 }
