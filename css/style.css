@@ -197,8 +197,6 @@ section {
     flex: 0 0 calc((100% / 5) - 60px);
   }
 }
-
-
 .browse .card-deck .card a {
   display: flex;
   flex-direction: column;
