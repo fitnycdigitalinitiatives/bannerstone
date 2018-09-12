@@ -63,6 +63,10 @@ header #fit-logo {
 #main-nav.navbar .dropdown-item:hover {
   background-color: #fff;
 }
+#main-nav.navbar .navbar-toggler {
+  padding-left: 0;
+  padding-right: 0;
+}
 @media (min-width: 768px) {
   #main-nav.navbar-expand-md .navbar-nav .nav-link, #main-nav.navbar .dropdown-item {
     padding: 0;
