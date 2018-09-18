@@ -67,6 +67,14 @@ header #fit-logo {
   padding-left: 0;
   padding-right: 0;
 }
+#main-nav.navbar .navbar-brand {
+  font-size: 1.15rem;
+}
+@media (min-width: 375px) {
+  #main-nav.navbar .navbar-brand {
+    font-size: 1.25rem;
+  }
+}
 @media (min-width: 768px) {
   #main-nav.navbar-expand-md .navbar-nav .nav-link, #main-nav.navbar .dropdown-item {
     padding: 0;
@@ -236,12 +244,30 @@ section {
   background-size: 4rem 4rem;
   min-height: 250px;
 }
+#viewer .tab-content>.active {
+    display: flex;
+}
 #viewer .os-static-image {
   border-radius: 0;
   border: 1px solid rgba(0,0,0,.125);
-  max-height: 500px;
+  max-height: 250px;
   max-width: 100%;
   cursor: zoom-in;
+}
+@media (min-width: 576px) {
+  #viewer .os-static-image {
+    max-height: 300px;
+  }
+}
+@media (min-width: 768px) {
+  #viewer .os-static-image {
+    max-height: 460px;
+  }
+}
+@media (min-width: 992px) {
+  #viewer .os-static-image {
+    max-height: 500px;
+  }
 }
 .openseadragon.fullpage {
   background-image: url('../images/loading.svg');
@@ -251,12 +277,22 @@ section {
   background-color: #000000;
 }
 #viewer .nav-item #nav-image {
-  height: 3rem;
+  height: 2rem;
   width: auto;
   border-color: rgba(0,0,0,.125);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   padding: 0;
   border-radius: 0;
+}
+@media (min-width: 768px) {
+  #viewer .nav-item #nav-image {
+    height: 2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  #viewer .nav-item #nav-image {
+    height: 3rem;
+  }
 }
 #viewer .nav-item .nav-link.active #nav-image {
   opacity: 0.2;
@@ -278,13 +314,16 @@ section {
   box-shadow: none;
 }
 #viewer .btnPrevious {
-  left: -24px;
+  left: 0;
 }
 #viewer .btnNext {
-  right: -24px;
+  right: 0;
 }
 #viewer .btn-arrow i {
   font-size: 4rem;
+}
+#viewer #download {
+  color: #f9683b;
 }
 #metadata h3 {
   font-size: 1.5rem;

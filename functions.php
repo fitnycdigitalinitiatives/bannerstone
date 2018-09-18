@@ -47,7 +47,7 @@ class OpenSeadragon
     if (($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
       $html = '<div class="row" id="viewer">';
       $html .= $this->openseadragon_create_tabs($fitdil_data_json_array, $github_collection);
-      $html .= '<div class="tab-content col-12 order-first mb-5" id="pills-tabContent">';
+      $html .= '<div class="tab-content col-12 order-first mb-2 mb-md-5" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
@@ -83,11 +83,11 @@ class OpenSeadragon
   private function openseadragon_create_buttons()
   {
     $html = <<<EOT
-    <button class="btn btn-arrow btnPrevious" aria-label="Previous" role="button">
+    <button class="btn btn-arrow btnPrevious d-none d-lg-block" aria-label="Previous" role="button">
       <i class="material-icons">keyboard_arrow_left</i>
       <span class="sr-only">Previous</span>
     </button>
-    <button class="btn btn-arrow btnNext" aria-label="Next" role="button">
+    <button class="btn btn-arrow btnNext d-none d-lg-block" aria-label="Next" role="button">
       <i class="material-icons">keyboard_arrow_right</i>
       <span class="sr-only">Previous</span>
     </button>
