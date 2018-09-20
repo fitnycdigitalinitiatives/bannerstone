@@ -322,14 +322,54 @@ section {
 #viewer .btn-arrow i {
   font-size: 4rem;
 }
-#viewer #download {
+#viewer #static-image-wrapper {
+  position: relative;
+}
+#viewer .btn-download {
   color: #f9683b;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+#viewer .btn-download:active {
+  opacity: .7;
 }
 #metadata h3 {
   font-size: 1.5rem;
 }
 #metadata .element {
   margin-bottom: 2rem;
+}
+#metadata .element a {
+  color: #343a40;
+}
+#metadata .element a:after {
+  content: "\2006link";
+  color: #f9683b;
+  font-family: 'Material Icons';
+  vertical-align: middle;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  transform: rotate(-45deg);
+  opacity: 1;
+}
+#metadata .element a:focus, #metadata .element a:hover {
+  color: #1d2124;
+  text-decoration: none;
+}
+#metadata .element a:focus:after, #metadata .element a:hover:after {
+  opacity: .7;
 }
 /* Simple Pages */
 .embed-responsive {

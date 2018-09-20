@@ -3,10 +3,10 @@
 <div class="justify-content-center tab-pane fade <?php if ($panel_id == 1) { echo 'show active'; } ?>" id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel" aria-labelledby="image-panel-<?php echo $panel_id; ?>">
 	<div id="static-image-wrapper">
 		<img class="os-static-image" src="<?php echo $static_image; ?>" id="openseadragon-image-<?php echo $panel_id; ?>" />
-		<div class="d-none d-md-block text-right mt-2" id="download">
+		<a href="<?php echo $download_url; ?>" role="button" class="btn btn-download" title="Download high resolution image" aria-label="Download Image">
 			<i class="material-icons">get_app</i>
 			<span class="sr-only">Download Image</span>
-		</div>
+		</a>
 	</div>
 	<div class="openseadragon" id="<?php echo $unique_id; ?>">
 		<script type="text/javascript">
