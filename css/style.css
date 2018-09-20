@@ -233,6 +233,13 @@ section {
   margin-top: 15px;
   font-size: 1rem;
 }
+.page-item.active .page-link {
+  background-color: #f9683b;
+  border-color: #f9683b;
+}
+.page-link {
+  color: #f9683b;
+}
 /*! Show */
 #viewer {
   border: 0;
