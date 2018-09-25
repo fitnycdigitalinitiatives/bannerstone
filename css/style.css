@@ -70,6 +70,25 @@ header #fit-logo {
 #main-nav.navbar .navbar-brand {
   font-size: 1.15rem;
 }
+#main-nav.navbar #search-button {
+  cursor: pointer;
+  color: #343a40;
+}
+#main-nav.navbar #search-button.active {
+  color: #f9683b;
+}
+#main-nav.navbar #search-button i {
+  vertical-align: bottom;
+}
+#main-nav #search-form input {
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+#main-nav #search-form input:focus {
+  box-shadow: none;
+}
 @media (min-width: 375px) {
   #main-nav.navbar .navbar-brand {
     font-size: 1.25rem;
@@ -88,6 +107,25 @@ header #fit-logo {
   }
   #main-nav.navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
     margin-left: 2rem;
+  }
+  #main-nav.navbar #search-button {
+    margin-left: 2rem;
+  }
+  #main-nav #search-form {
+    position: absolute;
+    left: 0;
+    bottom: -86px;
+    width: 100%;
+    display: none;
+  }
+  #main-nav #search-form input {
+    text-align: center;
+    font-size: 2.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  #main-nav #search-form input::placeholder {
+    color: #6c757d;
   }
 }
 main {
@@ -180,7 +218,7 @@ section {
   pointer-events: none;
 }
 
-/*! Browse */
+/*! Browse and search*/
 .browse #grid h2 {
   font-size: 1.25rem;
 }

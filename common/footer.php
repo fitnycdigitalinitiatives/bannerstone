@@ -41,6 +41,16 @@
       });
       </script>
     <?php endif; ?>
+    <script>
+    $(document).ready(function(){
+        $("#search-button").click(function(){
+            $(this).toggleClass("active");
+            $("#search-form").toggle();
+            $("#query").focus();
+
+        });
+    });
+    </script>
 
 </body>
 </html>

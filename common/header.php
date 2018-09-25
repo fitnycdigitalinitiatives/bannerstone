@@ -65,17 +65,25 @@
 
 
   <nav class="navbar navbar-expand-md bg-white sticky-top mb-md-2 py-md-3" id="main-nav">
-    <div class="container">
       <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="#343a40" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
       </button>
 
-      <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse justify-content-md-center position-relative" id="navbarSupportedContent">
         <?php echo public_nav_main_bootstrap(); ?>
-  			<?php echo search_form(array('show_advanced' => false, 'form_attributes' => array('class' => 'd-none form-inline my-2 my-lg-0'))); ?>
+        <span class="navbar-text p-0 mr-auto d-none d-md-block" id="search-button">
+          <i class="material-icons">search</i>
+        </span>
+        <!-- Search -->
+      	<!-- Get filter for plugin use -->
+      	<?php $url = apply_filters('search_form_default_action', url('search')); ?>
+      	<form id="search-form" name="search-form" role="search" action="<?php echo $url; ?>" method="get">
+      		<div class="form-group mb-0">
+      			<input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
+      		</div>
+      	</form>
       </div>
-    </div>
   </nav>
 
   <main id="content" role="main">
