@@ -259,7 +259,6 @@ section {
   flex: 1 1 auto;
 }
 .browse .card-deck .card .card-img {
-  max-height: 175px;
   border-radius: 0;
   border: 1px solid rgba(0,0,0,.125);
   object-fit: cover;
@@ -271,15 +270,44 @@ section {
   margin-top: 15px;
   font-size: 1rem;
 }
+.page-item {
+  padding: .25rem .5rem;
+}
 .page-item.active .page-link {
-  background-color: #f9683b;
   border-color: #f9683b;
+  background-color: initial;
+  color: #343a40;
+}
+.page-item:first-child .page-link, .page-item:last-child .page-link {
+  border-radius: 0;
+}
+.page-item.arrow {
+  padding: 0;
+}
+.page-item.arrow .page-link {
+  border: none;
+  color: #f9683b;
+  opacity: 1;
+}
+.page-item.arrow .page-link:active {
+  opacity: .7;
+}
+.page-item.arrow .page-link i {
+  font-size: 2rem;
 }
 .page-link {
-  color: #f9683b;
+  border: none;
+  border-bottom: .25rem solid transparent;
+  color: #343a40;
+  padding:
+}
+.page-link:focus {
+  box-shadow: none;
 }
 .page-link:hover {
-  color: #fd531f;
+  color: #1d2124;
+  background-color: initial;
+  border-color: #f9683b;
 }
 /*! Show */
 #viewer {
@@ -368,7 +396,7 @@ section {
   right: 0;
 }
 #viewer .btn-arrow i {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 #viewer #static-image-wrapper {
   position: relative;
