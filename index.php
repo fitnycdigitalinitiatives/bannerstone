@@ -25,12 +25,12 @@
   </div>
 </div>
 
-<div class="container" id="about">
+<div class="container" id="introduction">
   <div class="row justify-content-md-center">
     <div class="col-md-6">
       <?php fire_plugin_hook('public_home', array('view' => $this)); ?>
       <section>
-        <h1 class="text-center mb-4">About</h1>
+        <h1 class="text-center mb-4">Introduction</h1>
         <p>The <strong>A</strong>rchaic <strong>B</strong>annerstone <strong>P</strong>roject is a resource for the study of the aesthetically complex, anomalous ancient Native American lithics known as bannerstones. Finely composed, carved, and polished works are usually associated with luxury items for a ruling elite.  Bannerstones, however, were made within distinctly egalitarian societies raising questions about who made them, who were they made for, and for what purposes were they made.</p>
         <p>To engage with these and other questions we have created this open-source website to bring bannerstone awareness and study to the broadest range of people. Included on this site are a morphology of types, high-quality images, a glossary, a bibliography, and a vast array of out-of-print or difficult to find texts relevant to bannerstone study. Also included are suggested metrics to better standardize the study of bannerstones in public and private collections as well as a suggested guide for photographic practices.</p>
         <p>Learning to see, study, and value the art and technology of bannerstones will bring us closer to the lived lives of Ancient Native Americans of Eastern North America. This study, awareness, and appreciation of Ancient Native Americans in turn can open ways of seeing and respecting the vast history that links the past to the present.</p>

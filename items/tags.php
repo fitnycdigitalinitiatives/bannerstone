@@ -6,20 +6,30 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-6">
-      <h1 class="text-center mb-4">Bannerstone Types</h1>
+      <h1 class="text-center mb-4">Bannerstone Morphology</h1>
       <p class="px-3 mb-4">
-        The Archaic Bannerstone Project uses 24 distinct bannerstone types based on terms established by Byron Knoblock in his 1939 test <em>Banner-stones of the North American Indian</em>. Below, bannerstones can be browsed by these types.
+        The Archaic Bannerstone Project (ABP) employs 24 distinct bannerstone types based on terms established by Byron Knoblock in his 1939 text <em>Banner-stones of the North American Indian</em>. Below, bannerstones can be browsed by these types. As more collections are photographed and added to this ABP site we hope to include examples of all 24 types.
       </p>
 
       <ul class="leaders mb-4">
-      <?php foreach ($tags as $tag): ?>
+      <?php
+        $tags = get_records('Tag', array('include_zero' => true, 'sort_field' => 'name'), 0);
+        foreach ($tags as $tag):
+      ?>
+        <?php if ($tag["tagCount"] > 0): ?>
         <li>
           <span><?php echo link_to_items_browse($tag['name'], array('tags' => $tag['name']), array('class' => 'text-dark')); ?></span>
           <span><?php echo link_to_items_browse($tag["tagCount"], array('tags' => $tag['name']), array('class' => 'text-dark')); ?></span>
         </li>
+        <?php else: ?>
+          <li class="text-dark disabled">
+            <span><?php echo $tag['name']; ?></span>
+            <span><?php echo $tag["tagCount"]; ?></span>
+          </li>
+        <?php endif; ?>
       <?php endforeach; ?>
       </ul>
-      <h2 class="text-center mb-4">Bannerstone Morphology</h2>
+      <h2 class="text-center mb-4">Illustrated Bannerstone Morphology</h2>
       <div class="embed-responsive embed-responsive-7by5">
         <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/11NO1WSsXWq9kQ-ATR4bcZOWPKHqrfOUL/preview"></iframe>
       </div>

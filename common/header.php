@@ -72,6 +72,7 @@
 
       <div class="collapse navbar-collapse justify-content-md-center position-relative" id="navbarSupportedContent">
         <?php echo public_nav_main_bootstrap(); ?>
+        <?/* No Search Functionality Needed Until further notice ?>
         <span class="navbar-text p-0 mr-auto d-none d-md-block" id="search-button">
           <i class="material-icons">search</i>
         </span>
@@ -83,6 +84,7 @@
       			<input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
       		</div>
       	</form>
+        <?*/?>
       </div>
   </nav>
 

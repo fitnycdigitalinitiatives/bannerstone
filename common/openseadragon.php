@@ -16,7 +16,7 @@
 					prefixUrl: "<?php echo $button_path; ?>",
 					navigatorSizeRatio: 0.1,
 					minZoomImageRatio: 0.5,
-					maxZoomPixelRatio: 10,
+					maxZoomPixelRatio: 5,
 					controlsFadeDelay: 1000,
 					tileSources: ["<?php echo $info_json_url; ?>"]
 				});
