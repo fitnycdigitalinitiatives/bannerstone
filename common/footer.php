@@ -5,10 +5,10 @@
           <a href="https://www.fitnyc.edu">
             <img src="<?php echo img('FITSUNY1_white.png'); ?>" alt="Fashion Institute of Technology - State University of New York">
           </a>
-          <p>&copy;<?php echo date('Y'); ?> Fashion Insititute of Technology
+          <p class="small">&copy;<?php echo date('Y'); ?> Fashion Insititute of Technology
           <br>
           All rights reserved.</p>
-          <p class="mb-0">This site is an initiative of the FIT History of Art Department and the FIT Library.</p>
+          <p class="mb-0">This site is an initiative of the <a class="text-white" href="https://www.fitnyc.edu/history-of-art/">FIT History of Art Department</a> and the <a class="text-white" href="https://www.fitnyc.edu/library/">FIT Library</a>.</p>
         </div>
         <?php fire_plugin_hook('public_footer', array('view' => $this)); ?>
     </footer>
