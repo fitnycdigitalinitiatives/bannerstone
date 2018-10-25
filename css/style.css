@@ -180,6 +180,9 @@ section {
 #small-img #small-bottom {
   margin-bottom: 0;
 }
+#info i {
+  color: #f9683b;
+}
 @media (min-width: 768px) {
   #large-img img {
     width: 450px;

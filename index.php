@@ -19,6 +19,7 @@
         <div class="row">
           <div class="col-md-auto">
             <img src="<?php echo img('grid_2-4.jpg'); ?>" class="img-fluid" id="small-bottom" alt="Bannerstone image">
+            <a class="d-block text-right mt-2 text-dark" id="info" href="https://bannerstone.fitnyc.edu/items/show/112"><i class="material-icons align-bottom">info</i> AMNH DN/128</a>
           </div>
         </div>
     </div>
