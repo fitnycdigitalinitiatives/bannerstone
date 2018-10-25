@@ -8,7 +8,7 @@
     <div class="col-md-6">
       <h1 class="text-center mb-4">Bannerstone Morphology</h1>
       <p class="px-3 mb-4">
-        The Archaic Bannerstone Project (ABP) employs 24 distinct bannerstone types based on terms established by Byron Knoblock in his 1939 text <em>Banner-stones of the North American Indian</em>. Below, bannerstones can be browsed by these types and variations. As more collections are photographed and added to this ABP site we hope to include examples of all 24 types.
+        The Archaic Bannerstone Project (ABP) employs 24 distinct bannerstone types based on terms established by Byron Knoblock in his 1939 text <em>Banner-stones of the North American Indian</em>. Below, bannerstones can be browsed by these types and sub-types. As more collections are photographed and added to this ABP site we hope to include examples of all 24 types.
       </p>
 
       <ul class="leaders mb-4">

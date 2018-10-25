@@ -391,8 +391,9 @@ section {
 #viewer .btn-arrow:active {
   opacity: .7;
 }
-.btn:not([disabled]):not(.disabled):active, .btn:focus {
+.btn:not([disabled]):not(.disabled):active, .btn:focus, button:not([disabled]):not(.disabled):active, button:focus {
   box-shadow: none;
+  outline: none;
 }
 #viewer .btnPrevious {
   left: 0;

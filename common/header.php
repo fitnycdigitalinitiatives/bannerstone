@@ -49,7 +49,6 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
   <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-
   <div class="container d-none d-md-block">
     <header class="pt-4">
       <div class="row flex-nowrap justify-content-center align-items-center">

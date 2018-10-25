@@ -41,6 +41,16 @@
       });
       </script>
     <?php endif; ?>
+    <?php if ( (@$bodyid == 'exhibit')): ?>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $("#exhibit-nav .navbar-toggler").click(function(){
+              $("#main-nav").toggle(200);
+          });
+      });
+      </script>
+    <?php endif; ?>
+    <?php /* No Search Functionality Needed Until further notice
     <script>
     $(document).ready(function(){
         $("#search-button").click(function(){
@@ -51,6 +61,7 @@
         });
     });
     </script>
+    */ ?>
 
 </body>
 </html>
