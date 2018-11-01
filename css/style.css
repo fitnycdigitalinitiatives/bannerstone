@@ -456,6 +456,9 @@ section {
 #metadata .element a:focus:after, #metadata .element a:hover:after {
   opacity: .7;
 }
+#metadata .element-text {
+  margin-bottom: 1rem;
+}
 /* collections */
 .collections .collection h2 {
   font-size: 1.5rem;
