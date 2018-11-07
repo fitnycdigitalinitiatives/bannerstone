@@ -1,55 +1,64 @@
 <!doctype html>
 <html lang="<?php echo get_html_lang(); ?>">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <?php if ( $description = option('description')): ?>
-    <meta name="description" content="<?php echo $description; ?>" />
-    <?php endif; ?>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128899201-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <!-- Will build the page <title> -->
-    <?php
-        if (isset($title)) { $titleParts[] = strip_formatting($title); }
-        $titleParts[] = option('site_title');
-    ?>
-    <title><?php echo implode(' &middot; ', $titleParts); ?></title>
-    <?php echo auto_discovery_link_tags(); ?>
+    gtag('config', 'UA-128899201-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <?php if ( $description = option('description')): ?>
+  <meta name="description" content="<?php echo $description; ?>" />
+  <?php endif; ?>
 
-    <!-- Will fire plugins that need to include their own files in <head> -->
-    <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
+  <!-- Will build the page <title> -->
+  <?php
+      if (isset($title)) { $titleParts[] = strip_formatting($title); }
+      $titleParts[] = option('site_title');
+  ?>
+  <title><?php echo implode(' &middot; ', $titleParts); ?></title>
+  <?php echo auto_discovery_link_tags(); ?>
 
-    <!-- Icon -->
-    <link rel="icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
-    <link rel="shortcut icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
+  <!-- Will fire plugins that need to include their own files in <head> -->
+  <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
+
+  <!-- Icon -->
+  <link rel="icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo img('banner_icon.ico'); ?>" type="image/x-icon">
 
 
-    <!-- Need to add custom and third-party CSS files? Include them here -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <?php
-        queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
-        queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Playfair+Display:400,400i,700,700i');
-        queue_css_file('style');
-        echo head_css();
-    ?>
+  <!-- Need to add custom and third-party CSS files? Include them here -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <?php
+      queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
+      queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Playfair+Display:400,400i,700,700i');
+      queue_css_file('style');
+      echo head_css();
+  ?>
 
-    <!-- Javascript section -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <?php
-        queue_js_file('openseadragon/openseadragon.min');
-        echo head_js(false);
-    ?>
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!-- Javascript section -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <?php
+      queue_js_file('openseadragon/openseadragon.min');
+      echo head_js(false);
+  ?>
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
 </head>
 <?php
   if (@$bodyid == 'home') {
-    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass, 'data-spy' => 'scroll', 'data-target' => '#about-sidebar')); 
+    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass, 'data-spy' => 'scroll', 'data-target' => '#about-sidebar'));
   }
   else {
     echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass));
