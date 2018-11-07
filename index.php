@@ -60,7 +60,7 @@
         </p>
         <h2>Metadata Coordinator</h2>
         <p>
-          <strong>Molly Schoen</strong>, MLIS, Visual Resources Curator at the Fashion Institute of Technology, State University of New York. Her position at FIT involves assisting History of Art faculty and students with their research, technology, and image needs, and she also maintains the Art History Collection on FITDIL—FIT’s Digital Image Library. She has also published in several journals and books, including <em>The Handbook of Art and Design Librarianship</em>, second edition. Prior to working at FIT, she worked at the University of Michigan’s Visual Resources Collection and at the Mott-Warsh Collection of Flint, MI.
+          <strong>Molly Schoen</strong>, MLIS, Visual Resources Curator at the Fashion Institute of Technology, State University of New York. Her role in the Archaic Bannerstone Project involves creating and updating image metadata records, as well as general proofreading of text. In her position as Visual Resources Curator, she assists History of Art faculty with their research, technology, and image needs, and she maintains a large collection of art images for FITDIL, the FIT Digital Image Library. She has also published in several journals and books, including <em>The Handbook of Art and Design Librarianship</em>, second edition.
         </p>
         <h2>Digital Imaging Specialist</h2>
         <p>
