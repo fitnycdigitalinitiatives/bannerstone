@@ -48,6 +48,25 @@
         <p>Under the Bannerstone tab all images are available alphabetized by collection. Under the Collection Tab you can find notes on these specific collections as well as all images and metadata from that collection. Under the Typology Tab you will be able to search by type. By clicking on each bannerstone image you will open up the full suite of images and metadata for this stone. Images from each particular collection will be identified by the name of the collection and the catalog or accession number. For instance (AMNH 1/1821) refers to a specific quartz butterfly bannerstone in the American Museum of Natural History. All web essays and resources under the Resource Tab are also available for download.</p>
         <p>For publishing questions or general suggestions regarding the ABP, contact <a href="mailto:bannerstone@fitnyc.edu">bannerstone@fitnyc.edu</a>.</p>
       </section>
+      <section id="team">
+        <h1 class="text-center mb-4">Project Team</h1>
+        <h2>Project Director</h2>
+        <p>
+          <strong>Anna Blume</strong>, PhD, Professor of the History of Art at the Fashion Institute of Technology, State University of New York. Professor Blume received her PhD in the History of Art at Yale University in 1997. She has been researching, writing, and teaching courses on indigenous art of the Americas for the past twenty years. Her recent work includes a study of Maya concepts of zero, published by the <em>American Philosophical Society</em> in 2009, and a study of ancient monumental art along the Mississippi published in <em>RES: A Journal of Anthropology and Aesthetics</em> in 2018. Professor Blume began an ongoing in-depth study of Bannerstones in 2016 working with the American Museum of Natural History collection of 462 stones. The Archaic Bannerstone Project was conceived by her as a way to bring these important carved stones to as broad a public as possible, to reveal the deep history of the creative imagination of the indigenous people of eastern North America.
+        </p>
+        <h2>Project Developer</h2>
+        <p>
+          <strong>Joseph Anderson</strong>, MLIS, Adjunct Assistant Professor, Digital Initiatives Librarian at the Fashion Institute of Technology, State University of New York. Professor Anderson is responsible for overseeing and directing library initiatives involving both digital content and metadata.  He has developed and currently oversees <em>Archive on Demand</em>, FIT’s online video resource; <em>SPARC Connect</em>, the Library’s Special Collections and Archives (SPARC) archival management tool; and <em>SPARC Digital</em>, an online exhibition platform and image database. In addition, he has collaborated with FIT Faculty on a number of digital humanities projects.
+        </p>
+        <h2>Metadata Coordinator</h2>
+        <p>
+          <strong>Molly Schoen</strong>, MLIS, Visual Resources Curator at the Fashion Institute of Technology, State University of New York. Her position at FIT involves assisting History of Art faculty and students with their research, technology, and image needs, and she also maintains the Art History Collection on FITDIL—FIT’s Digital Image Library. She has also published in several journals and books, including <em>The Handbook of Art and Design Librarianship</em>, second edition. Prior to working at FIT, she worked at the University of Michigan’s Visual Resources Collection and at the Mott-Warsh Collection of Flint, MI.
+        </p>
+        <h2>Digital Imaging Specialist</h2>
+        <p>
+          <strong>Nanja Andriananjason</strong>, BFA, Visual Resources Technologist at the Fashion Institute of Technology, State University of New York. He works closely with the Visual Resources Curator in digitizing teaching materials for the History of Art Department faculty members, as well as images for the Art History Collection on FITDIL. His decades-old expertise in color correction and digital manipulation played an important role in assisting the Project Director with fine tuning all the images in The Archaic Bannerstone Project.
+        </p>
+      </section>
     </div>
     <div class="col-md-3 d-none d-md-block">
       <ul class="nav flex-column sticky-top small" id="about-sidebar">
@@ -59,6 +78,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#images">Images and Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#team">Project Team</a>
         </li>
       </ul>
     </div>

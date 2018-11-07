@@ -231,6 +231,13 @@ ul.leaders span + span {
   padding-right: 8px;
   padding-left: 3px;
 }
+#home #team h2 {
+  font-size: 1.25rem;
+  color: #6c757d;
+}
+#home #team p {
+  margin-bottom: 2rem;
+}
 
 /*! Browse and search*/
 .browse #grid h2 {
