@@ -242,3 +242,49 @@ function item_search_filters_bootstrap(array $params = null)
         }
         return $html;
     }
+
+// Creates social media tags for an image, following Twitter and Facebook standards.
+function social_tags($bodyclass) {
+	$html = '';
+	if ($bodyclass == "items show" ) {
+		$item = get_current_record('item');
+		$title = metadata($item, array('Dublin Core', 'Title'));
+		$url = record_url($item, null, true);
+		$image = thumbnail_url($item, 1);
+		$description = metadata($item, array('Item Type Metadata', 'Bannerstone Type')) . ' type bannerstone. ' . metadata($item, array('Item Type Metadata', 'Notes'));
+		$html .= '<meta name="description" content="' . $description . '" />';
+		$html .= '<!-- Open Graph data -->';
+		$html .= '<meta property="og:title" content="' . $title . '" />';
+		$html .= '<meta property="og:type" content="article" />';
+		$html .= '<meta property="og:url" content="' . $url . '" />';
+		$html .= '<meta property="og:image" content="' . $image . '" />';
+		$html .= '<meta property="og:description" content="' . $description . '" />';
+
+		$html .= '<!-- Twitter Card data -->';
+		$html .= '<meta name="twitter:card" content="summary_large_image">';
+		$html .= '<meta name="twitter:title" content="' . $title . '" />';
+		$html .= '<meta name="twitter:description" content="' . $description . '" />';
+		$html .= '<meta name="twitter:image" content="' . $image . '" />';
+	}
+	else {
+		if ($site_description = option('description')) {
+			$html .= '<meta name="description" content="' . $site_description . '" />';
+		}
+	}
+	return $html;
+}
+// Given an metadata element and term, returns a search of all videos that match that term.
+function heading_links($elementName, $text) {
+	$element = get_db()->getTable('Element')->findByElementSetNameAndElementName('Item Type Metadata', $elementName);
+	$id = $element->id;
+	$advanced[] = array('element_id' => $id, 'terms' => htmlspecialchars_decode($text, ENT_QUOTES), 'type' => 'is exactly');
+	$paramArray = array('search' => '', 'advanced' => $advanced);
+	$params = http_build_query($paramArray);
+	$url = url('/items/browse?') . $params;
+	$html = '<a href="';
+	$html .= $url;
+	$html .= '">';
+	$html .= $text;
+	$html .= '</a>';
+	return $html;
+}
