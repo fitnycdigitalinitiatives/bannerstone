@@ -3,22 +3,22 @@
 <div class="container-fluid" id="banner">
   <div class="row justify-content-md-center">
     <div class="col-md-auto" id="large-img">
-      <img src="<?php echo img('grid_2-1.jpg'); ?>" class="img-fluid" alt="Bannerstone image">
+      <img src="<?php echo img('grid_2-1.jpg'); ?>" class="img-fluid" alt="Bannerstone AMNH DN/128 view 1">
     </div>
     <div class="col-md-auto" id="small-img">
         <div class="row">
           <div class="col-md-auto">
-            <img src="<?php echo img('grid_2-2.jpg'); ?>" class="img-fluid" id="small-top" alt="Bannerstone image">
+            <img src="<?php echo img('grid_2-2.jpg'); ?>" class="img-fluid" id="small-top" alt="Bannerstone AMNH DN/128 view 2">
           </div>
         </div>
         <div class="row">
           <div class="col-md-auto">
-            <img src="<?php echo img('grid_2-3.jpg'); ?>" class="img-fluid" id="small-middle" alt="Bannerstone image">
+            <img src="<?php echo img('grid_2-3.jpg'); ?>" class="img-fluid" id="small-middle" alt="Bannerstone AMNH DN/128 view 3">
           </div>
         </div>
         <div class="row">
           <div class="col-md-auto">
-            <img src="<?php echo img('grid_2-4.jpg'); ?>" class="img-fluid" id="small-bottom" alt="Bannerstone image">
+            <img src="<?php echo img('grid_2-4.jpg'); ?>" class="img-fluid" id="small-bottom" alt="Bannerstone AMNH DN/128 view 4">
             <a class="d-block text-right mt-2 text-dark" id="info" href="https://bannerstone.fitnyc.edu/items/show/112"><i class="material-icons align-bottom">info</i> AMNH DN/128</a>
           </div>
         </div>

@@ -24,7 +24,7 @@
         <div class="card">
           <a class="text-dark" href="<?php echo record_url($item, null, true); ?>">
             <div class="card-push"></div>
-            <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>" alt="<?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
+            <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>" alt="Bannerstone <?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
             <div class="card-push"></div>
             <h3 class="card-title text-center"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h3>
             <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
