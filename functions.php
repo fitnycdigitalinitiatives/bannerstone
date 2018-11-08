@@ -74,7 +74,7 @@ class OpenSeadragon
       $record_name = $fitdil_data["record-name"];
       $thumbnail_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
       $html .= '<li class="nav-item"><a class="nav-link' . ($tab_id == 1 ? ' active' : '') . '" id="image-panel-' . $tab_id . '" data-toggle="pill" href="#openseadragon-' . $tab_id . '" role="tab" aria-controls="pills-home" aria-selected="true">';
-      $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '"/>';
+      $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '" alt="Bannerstone view ' . $record_name . ' thumbnail"/>';
       $html .= '</a></li>';
       $tab_id++;
     }

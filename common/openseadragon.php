@@ -2,7 +2,7 @@
 <?php $unique_id = "openseadragon_".hash("md4", html_escape($hash)); ?>
 <div class="justify-content-center tab-pane fade <?php if ($panel_id == 1) { echo 'show active'; } ?>" id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel" aria-labelledby="image-panel-<?php echo $panel_id; ?>">
 	<div id="static-image-wrapper">
-		<img class="os-static-image" src="<?php echo $static_image; ?>" id="openseadragon-image-<?php echo $panel_id; ?>" />
+		<img class="os-static-image" src="<?php echo $static_image; ?>" id="openseadragon-image-<?php echo $panel_id; ?>" alt="Bannerstone view <?php echo $hash; ?>"/>
 		<a href="<?php echo $download_url; ?>" role="button" class="btn btn-download d-none d-md-block" title="Please see Rights statement below for usage guidelines" aria-label="Download Image">
 			<i class="material-icons">get_app</i>
 			<span class="sr-only">Download Image</span>
