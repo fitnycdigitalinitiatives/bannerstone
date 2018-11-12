@@ -51,8 +51,11 @@
       <section id="team">
         <h1 class="text-center mb-4">Project Team</h1>
         <h2>Project Director</h2>
-        <p>
+        <p class="mb-2">
           <strong>Anna Blume</strong>, PhD, Professor of the History of Art at the Fashion Institute of Technology, State University of New York. Professor Blume received her PhD in the History of Art at Yale University in 1997. She has been researching, writing, and teaching courses on indigenous art of the Americas for the past twenty years. Her recent work includes a study of Maya concepts of zero, published by the <em>American Philosophical Society</em> in 2009, and a study of ancient monumental art along the Mississippi published in <em>RES: A Journal of Anthropology and Aesthetics</em> in 2018. Professor Blume began an ongoing in-depth study of Bannerstones in 2016 working with the American Museum of Natural History collection of 462 stones. The Archaic Bannerstone Project was conceived by her as a way to bring these important carved stones to as broad a public as possible, to reveal the deep history of the creative imagination of the indigenous people of eastern North America.
+        </p>
+        <p>
+          <a href="http://www.fitnyc.edu/art-history/faculty/anna-blume.php">Professor Blume's FIT Faculty Page</a>
         </p>
         <h2>Project Developer</h2>
         <p>
