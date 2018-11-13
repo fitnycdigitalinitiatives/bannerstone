@@ -59,7 +59,7 @@
         </p>
         <h2>Project Developer</h2>
         <p>
-          <strong>Joseph Anderson</strong>, MLIS, Adjunct Assistant Professor, Digital Initiatives Librarian at the Fashion Institute of Technology, State University of New York. Professor Anderson is responsible for overseeing and directing library initiatives involving both digital content and metadata.  He has developed and currently oversees <em>Archive on Demand</em>, FIT’s online video resource; <em>SPARC Connect</em>, the Library’s Special Collections and Archives (SPARC) archival management tool; and <em>SPARC Digital</em>, an online exhibition platform and image database. In addition, he has collaborated with FIT Faculty on a number of digital humanities projects.
+          <strong>Joseph Anderson</strong>, MLIS, Assistant Professor, Digital Initiatives Librarian at the Fashion Institute of Technology, State University of New York. Professor Anderson is responsible for overseeing and directing library initiatives involving both digital content and metadata.  He has developed and currently oversees <em>Archive on Demand</em>, FIT’s online video resource; <em>SPARC Connect</em>, the Library’s Special Collections and Archives (SPARC) archival management tool; and <em>SPARC Digital</em>, an online exhibition platform and image database. In addition, he has collaborated with FIT Faculty on a number of digital humanities projects.
         </p>
         <h2>Metadata Coordinator</h2>
         <p>
