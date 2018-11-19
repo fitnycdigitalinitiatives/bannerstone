@@ -43,6 +43,9 @@ header {
 header #fit-logo {
   margin-left: -61px;
 }
+header #fit-logo img {
+  height: 30px;
+}
 @media (min-width: 992px) {
   .header-logo {
     font-size: 4rem;
