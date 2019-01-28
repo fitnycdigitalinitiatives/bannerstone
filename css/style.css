@@ -15,6 +15,7 @@ a {
 }
 a:hover {
   color: #f9683b;
+  text-decoration: none;
 }
 footer {
   background-color: #343a40;
@@ -180,7 +181,7 @@ ul.leaders span + span {
 #small-img #small-bottom {
   margin-bottom: 0;
 }
-#info i {
+#info i, #citation-button i {
   color: #f9683b;
 }
 @media (min-width: 768px) {
