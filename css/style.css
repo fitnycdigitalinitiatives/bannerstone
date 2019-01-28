@@ -181,6 +181,10 @@ ul.leaders span + span {
 #small-img #small-bottom {
   margin-bottom: 0;
 }
+#citation-button {
+  font-size: small;
+  line-height: 2;
+}
 #info i, #citation-button i {
   color: #f9683b;
 }
