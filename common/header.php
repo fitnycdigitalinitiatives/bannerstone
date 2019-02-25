@@ -64,6 +64,7 @@
 
 ?>
   <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
+  <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
   <div class="container d-none d-md-block">
     <header class="pt-4">
       <div class="row flex-nowrap justify-content-center align-items-center">
