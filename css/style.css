@@ -437,9 +437,13 @@ ul.leaders span + span {
   right: 0;
   bottom: 0;
   opacity: 1;
+  background-color: transparent;
 }
 #viewer .btn-download:active {
   opacity: .7;
+}
+#viewer .btn-download.dropdown-toggle::after {
+  display: none;
 }
 #metadata h3 {
   font-size: 1.5rem;

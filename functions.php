@@ -54,9 +54,12 @@ class OpenSeadragon
         $record_name = $fitdil_data["record-name"];
         $fitdil_url = $fitdil_data["image-url"];
         $static_image = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+        $small_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '400x400/?forcedl';
+        $medium_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '800x800/?forcedl';
+        $large_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '1600x1600/?forcedl';
+        $original_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '?forcedl';
         $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
-        $download_url = 'https://fitdil.fitnyc.edu' . $fitdil_url . '?forcedl';
-        $html .= get_view()->partial('common/openseadragon.php', array('info_json_url' => $info_json_url, 'hash' => $record_name, 'panel_id' => $panel_id, 'static_image' => $static_image, 'download_url' => $download_url));
+        $html .= get_view()->partial('common/openseadragon.php', array('info_json_url' => $info_json_url, 'hash' => $record_name, 'panel_id' => $panel_id, 'static_image' => $static_image, 'small_image' => $small_image, 'medium_image' => $medium_image, 'large_image' => $large_image, 'original_image' => $original_image));
         $panel_id++;
       }
       $html .= $this->openseadragon_create_buttons();
