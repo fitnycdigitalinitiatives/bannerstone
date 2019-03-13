@@ -445,6 +445,9 @@ ul.leaders span + span {
 #viewer .btn-download.dropdown-toggle::after {
   display: none;
 }
+#viewer .dropdown .dropdown-menu {
+  max-width: 14rem;
+}
 #metadata h3 {
   font-size: 1.5rem;
 }

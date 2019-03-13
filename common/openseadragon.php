@@ -4,7 +4,7 @@
 	<div id="static-image-wrapper">
 		<img class="os-static-image" src="<?php echo $static_image; ?>" id="openseadragon-image-<?php echo $panel_id; ?>" alt="Bannerstone view <?php echo $hash; ?>"/>
 		<div class="dropdown">
-			<button role="button" class="btn btn-download d-none d-md-block dropdown-toggle" title="Please see Rights statement below for usage guidelines" type="button" id="<?php echo $hash; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button role="button" class="btn btn-download d-none d-md-block dropdown-toggle" type="button" id="<?php echo $hash; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="material-icons">get_app</i>
 				<span class="sr-only">Download Image</span>
 			</button>
@@ -13,6 +13,9 @@
 				<a class="dropdown-item small" href="<?php echo $medium_image; ?>" download="<?php echo $hash; ?>">Medium (800px)</a>
 				<a class="dropdown-item small" href="<?php echo $large_image; ?>" download="<?php echo $hash; ?>">Large (1600px)</a>
 		    <a class="dropdown-item small" href="<?php echo $original_image; ?>" download="<?php echo $hash; ?>">Original</a>
+				<div class="dropdown-divider"></div>
+				<p class="px-4 py-1 mb-0 small">Please see Rights statement below for usage guidelines</p>
+
 		  </div>
 		</div>
 	</div>
