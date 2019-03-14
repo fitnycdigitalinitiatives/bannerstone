@@ -12,7 +12,7 @@
 				<a class="dropdown-item small" href="<?php echo $small_image; ?>" download="<?php echo $hash; ?>">Small (400px)</a>
 				<a class="dropdown-item small" href="<?php echo $medium_image; ?>" download="<?php echo $hash; ?>">Medium (800px)</a>
 				<a class="dropdown-item small" href="<?php echo $large_image; ?>" download="<?php echo $hash; ?>">Large (1600px)</a>
-		    <a class="dropdown-item small" href="<?php echo $original_image; ?>" download="<?php echo $hash; ?>">Original</a>
+		    <a class="dropdown-item small" href="<?php echo $original_image; ?>" download="<?php echo $hash; ?>">Original (full resolution)</a>
 				<div class="dropdown-divider"></div>
 				<p class="px-4 py-1 mb-0 small">Please see Rights statement below for usage guidelines</p>
 
