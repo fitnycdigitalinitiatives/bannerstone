@@ -9,7 +9,7 @@
     		<div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element">
     			<h3><?php echo html_escape(__($elementName)); ?></h3>
     			<?php foreach ($elementInfo['texts'] as $text): ?>
-    				<div class="element-text"><?php echo heading_links($elementName, $text); ?></div>
+    				<div class="element-text"><?php echo heading_links($setName, $elementName, $text); ?></div>
     			<?php endforeach; ?>
     		</div><!-- end element -->
     	<?php else: ?>
