@@ -306,9 +306,9 @@ function social_tags($bodyclass) {
 	}
 	return $html;
 }
-// Given an metadata element and term, returns a search of all items that match that term.
-function heading_links($setName, $elementName, $text) {
-	$element = get_db()->getTable('Element')->findByElementSetNameAndElementName($setName, $elementName);
+// Given an metadata element and term, returns a search of all videos that match that term.
+function heading_links($elementName, $text) {
+	$element = get_db()->getTable('Element')->findByElementSetNameAndElementName('Item Type Metadata', $elementName);
 	$id = $element->id;
 	$advanced[] = array('element_id' => $id, 'terms' => htmlspecialchars_decode($text, ENT_QUOTES), 'type' => 'is exactly');
 	$paramArray = array('search' => '', 'advanced' => $advanced);
