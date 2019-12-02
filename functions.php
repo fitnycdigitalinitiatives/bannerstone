@@ -13,7 +13,11 @@ function thumbnail_url($item, $index = 0) {
   if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
+    if ((metadata('item', 'Collection Name')) == 'American Museum of Natural History') {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
+    } else {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/250,/0/default.jpg';
+    }
     return $url;
   }
 }
