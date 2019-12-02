@@ -13,7 +13,8 @@ function thumbnail_url($item, $index = 0) {
   if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    if ((metadata('item', 'Collection Name')) == 'American Museum of Natural History') {
+    // Fix for weirdness where iiif images for this American Museum of Natural History collection added suffix of -1
+    if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
       $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
     } else {
       $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/250,/0/default.jpg';
@@ -26,7 +27,11 @@ function medium_url($item, $index = 0) {
   if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/600,/0/default.jpg';
+    if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/600,/0/default.jpg';
+    } else {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/600,/0/default.jpg';
+    }
     return $url;
   }
 }
@@ -35,7 +40,11 @@ function large_url($item, $index = 0) {
   if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+    if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+    } else {
+      $url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/1140,/0/default.jpg';
+    }
     return $url;
   }
 }
@@ -49,20 +58,29 @@ class OpenSeadragon
   public function render($item)
   {
     if (($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
+      $collection = metadata($item, 'Collection Name');
       $html = '<div class="row" id="viewer">';
-      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array, $github_collection);
+      $html .= $this->openseadragon_create_tabs($fitdil_data_json_array, $github_collection, $collection);
       $html .= '<div class="tab-content col-12 order-first mb-2 mb-md-5" id="pills-tabContent">';
       $panel_id = 1;
       foreach ($fitdil_data_json_array as $fitdil_data_json) {
         $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
         $record_name = $fitdil_data["record-name"];
         $fitdil_url = $fitdil_data["image-url"];
-        $static_image = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+        if ($collection == 'American Museum of Natural History') {
+          $static_image = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/1140,/0/default.jpg';
+        } else {
+          $static_image = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/1140,/0/default.jpg';
+        }
         $small_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '400x400/?forcedl';
         $medium_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '800x800/?forcedl';
         $large_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '1600x1600/?forcedl';
         $original_image = 'https://fitdil.fitnyc.edu' . $fitdil_url . '?forcedl';
-        $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
+        if ($collection == 'American Museum of Natural History') {
+          $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
+        } else {
+          $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/info.json';
+        }
         $html .= get_view()->partial('common/openseadragon.php', array('info_json_url' => $info_json_url, 'hash' => $record_name, 'panel_id' => $panel_id, 'static_image' => $static_image, 'small_image' => $small_image, 'medium_image' => $medium_image, 'large_image' => $large_image, 'original_image' => $original_image));
         $panel_id++;
       }
@@ -72,14 +90,18 @@ class OpenSeadragon
       return $html;
     }
   }
-  private function openseadragon_create_tabs($fitdil_data_json_array, $github_collection)
+  private function openseadragon_create_tabs($fitdil_data_json_array, $github_collection, $collection)
   {
     $html = '<div class="col-12 order-last mb-5"><ul class="nav justify-content-center" id="pills-tab" role="tablist">';
     $tab_id = 1;
     foreach ($fitdil_data_json_array as $fitdil_data_json) {
       $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
       $record_name = $fitdil_data["record-name"];
-      $thumbnail_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
+      if ($collection == 'American Museum of Natural History') {
+        $thumbnail_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/full/250,/0/default.jpg';
+      } else {
+        $thumbnail_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/full/250,/0/default.jpg';
+      }
       $html .= '<li class="nav-item"><a class="nav-link' . ($tab_id == 1 ? ' active' : '') . '" id="image-panel-' . $tab_id . '" data-toggle="pill" href="#openseadragon-' . $tab_id . '" role="tab" aria-controls="pills-home" aria-selected="true">';
       $html .= '<img id="nav-image" class="img-thumbnail" src="' . $thumbnail_url . '" alt="Bannerstone view ' . $record_name . ' thumbnail"/>';
       $html .= '</a></li>';
@@ -135,7 +157,11 @@ function OpenSeadragonExhibit($item, $index = 0, $imageSize = 'thumbnail')
   if (($fitdil_data_json = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('index' => $index))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
     $fitdil_data = json_decode(html_entity_decode($fitdil_data_json), true);
     $record_name = $fitdil_data["record-name"];
-    $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
+    if ((metadata($item, 'Collection Name')) == 'American Museum of Natural History') {
+      $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '-1/info.json';
+    } else {
+      $info_json_url = 'https://fit-bannerstones.github.io/' . $github_collection . '/images/' . $record_name . '/info.json';
+    }
     if ($imageSize == 'fullsize') {
       $static_image = large_url($item, $index);
     }
