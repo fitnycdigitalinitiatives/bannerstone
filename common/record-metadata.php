@@ -12,6 +12,14 @@
     				<div class="element-text"><?php echo heading_links($elementName, $text); ?></div>
     			<?php endforeach; ?>
     		</div><!-- end element -->
+      <?php elseif ($elementName == "Provenance/Provenience"): ?>
+        <div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element">
+            <h3><?php echo html_escape(__($elementName)); ?></h3>
+            <?php foreach ($elementInfo['texts'] as $text): ?>
+                <div class="element-text"><?php echo $text; ?></div>
+            <?php endforeach; ?>
+            <?php echo $this->geolocationMapSingle($record, '100%', '270px'); ?>
+        </div><!-- end element -->
     	<?php else: ?>
         <div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element">
             <h3><?php echo html_escape(__($elementName)); ?></h3>

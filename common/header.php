@@ -17,7 +17,9 @@
 
   <!-- Will build the page <title> -->
   <?php
-      if (isset($title)) { $titleParts[] = strip_formatting($title); }
+      if (isset($title)) {
+          $titleParts[] = strip_formatting($title);
+      }
       $titleParts[] = option('site_title');
   ?>
   <title><?php echo implode(' &middot; ', $titleParts); ?></title>
@@ -36,7 +38,7 @@
   <?php
       queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
       queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Playfair+Display:400,400i,700,700i');
-      queue_css_file('style');
+      queue_css_file('style', 'all', false, 'css', '1.1');
       echo head_css();
   ?>
 
@@ -56,10 +58,9 @@
 </head>
 <?php
   if (@$bodyid == 'home') {
-    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass, 'data-spy' => 'scroll', 'data-target' => '#about-sidebar'));
-  }
-  else {
-    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass));
+      echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass, 'data-spy' => 'scroll', 'data-target' => '#about-sidebar'));
+  } else {
+      echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass));
   }
 
 ?>
