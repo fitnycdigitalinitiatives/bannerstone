@@ -18,7 +18,7 @@
             <?php foreach ($elementInfo['texts'] as $text): ?>
                 <div class="element-text"><?php echo $text; ?></div>
             <?php endforeach; ?>
-            <?php // echo $this->geolocationMapSingle($record, '100%', '300px');?>
+            <?php echo $this->geolocationMapSingle($record, '100%', '300px', false, 'geolocation_balloon', 'custom');?>
         </div><!-- end element -->
     	<?php else: ?>
         <div id="<?php echo text_to_id(html_escape("$setName $elementName")); ?>" class="element">
