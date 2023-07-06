@@ -42,7 +42,7 @@
   <?php
   queue_css_url('https://fonts.googleapis.com/icon?family=Material+Icons');
   queue_css_url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,500,500i,700,700i|Playfair+Display:400,400i,700,700i');
-  queue_css_file('style', 'all', false, 'css', '1.1');
+  queue_css_file('style', 'all', false, 'css', '1.2');
   echo head_css();
   ?>
 
@@ -103,18 +103,18 @@ if (@$bodyid == 'home') {
   <div class="collapse navbar-collapse justify-content-md-center position-relative" id="navbarSupportedContent">
     <?php echo public_nav_main_bootstrap(); ?>
     <?php /* No Search Functionality Needed Until further notice
-   <span class="navbar-text p-0 mr-auto d-none d-md-block" id="search-button">
-     <i class="material-icons">search</i>
-   </span>
-   <!-- Search -->
-   <!-- Get filter for plugin use -->
-   <?php $url = apply_filters('search_form_default_action', url('search')); ?>
-   <form id="search-form" name="search-form" role="search" action="<?php echo $url; ?>" method="get">
-     <div class="form-group mb-0">
-       <input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
-     </div>
-   </form>
-   */?>
+<span class="navbar-text p-0 mr-auto d-none d-md-block" id="search-button">
+<i class="material-icons">search</i>
+</span>
+<!-- Search -->
+<!-- Get filter for plugin use -->
+<?php $url = apply_filters('search_form_default_action', url('search')); ?>
+<form id="search-form" name="search-form" role="search" action="<?php echo $url; ?>" method="get">
+<div class="form-group mb-0">
+  <input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
+</div>
+</form>
+*/?>
   </div>
 </nav>
 
