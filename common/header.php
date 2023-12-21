@@ -55,8 +55,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/openseadragon@2.4/build/openseadragon/openseadragon.min.js"></script>
   <?php
-  queue_js_file('openseadragon/openseadragon.min');
   echo head_js(false);
   ?>
   <!--[if lt IE 9]>
@@ -111,7 +111,7 @@ if (@$bodyid == 'home') {
 <?php $url = apply_filters('search_form_default_action', url('search')); ?>
 <form id="search-form" name="search-form" role="search" action="<?php echo $url; ?>" method="get">
 <div class="form-group mb-0">
-  <input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
+<input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
 </div>
 </form>
 */?>
