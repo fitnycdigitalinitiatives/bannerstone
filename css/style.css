@@ -157,14 +157,10 @@ header #fit-logo img {
   }
 
   #main-nav.navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
   }
 
-  @media (min-width: 992px) {
-    #main-nav.navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
-      margin-left: 2rem;
-    }
-  }
+
 
   #main-nav.navbar #search-button {
     margin-left: 2rem;
@@ -187,6 +183,12 @@ header #fit-logo img {
 
   #main-nav #search-form input::placeholder {
     color: #6c757d;
+  }
+}
+
+@media (min-width: 992px) {
+  #main-nav.navbar-expand-md .navbar-nav .nav-item:not(:first-of-type) {
+    margin-left: 2rem;
   }
 }
 
