@@ -82,7 +82,7 @@ if (@$bodyid == 'home') {
         <img src="<?php echo img('fit-logo.png'); ?>" alt="Fashion Institute of Technology logo">
       </div>
       <div class="col-auto text-center">
-        <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'text-dark header-logo')); ?>
+        <?php echo link_to_home_page('Bannerstone Project', array('class' => 'text-dark header-logo')); ?>
       </div>
     </div>
   </header>
@@ -90,7 +90,7 @@ if (@$bodyid == 'home') {
 
 
 <nav class="navbar navbar-expand-md bg-white sticky-top py-md-3" id="main-nav">
-  <?php echo link_to_home_page('Archaic Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
+  <?php echo link_to_home_page('Bannerstone Project', array('class' => 'navbar-brand d-md-none text-dark')); ?>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
@@ -114,7 +114,7 @@ if (@$bodyid == 'home') {
 <input type="text" name="query" id="query" value="" class="form-control" placeholder="Enter Search Terms..." aria-label="Search" autocomplete="off">
 </div>
 </form>
-*/?>
+*/ ?>
   </div>
 </nav>
 

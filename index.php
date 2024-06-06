@@ -36,8 +36,9 @@
       <?php fire_plugin_hook('public_home', array('view' => $this)); ?>
       <section id="introduction">
         <h1 class="text-center mb-4">Introduction</h1>
-        <p>The <strong>A</strong>rchaic <strong>B</strong>annerstone <strong>P</strong>roject is a resource for the
-          study of the aesthetically complex, anomalous ancient Native American lithics known as bannerstones. Finely
+        <p>The <strong>B</strong>annerstone <strong>P</strong>roject is a resource for the
+          study of the aesthetically complex, anomalous ancient Indigenous North American lithics known as bannerstones.
+          Finely
           composed, carved, and polished works are usually associated with luxury items for a ruling elite.
           Bannerstones, however, were made within distinctly egalitarian societies raising questions about who made
           them, who were they made for, and for what purposes were they made.</p>
