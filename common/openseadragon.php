@@ -15,15 +15,15 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="<?php echo $hash; ?>">
 				<a class="dropdown-item small download" href="<?php echo $small_image; ?>"
-					data-filename="<?php echo $hash . ".jpg"; ?>">Small
+					data-filename="<?php echo $hash . "-small.jpg"; ?>">Small
 					(400px)</a>
 				<a class="dropdown-item small download" href="<?php echo $medium_image; ?>"
-					data-filename="<?php echo $hash . ".jpg"; ?>">Medium (800px)</a>
+					data-filename="<?php echo $hash . "-medium.jpg"; ?>">Medium (800px)</a>
 				<a class="dropdown-item small download" href="<?php echo $large_image; ?>"
-					data-filename="<?php echo $hash . ".jpg"; ?>">Large
+					data-filename="<?php echo $hash . "-large.jpg"; ?>">Large
 					(1600px)</a>
 				<a class="dropdown-item small download" href="<?php echo $original_image; ?>"
-					data-filename="<?php echo $hash . ".jpg"; ?>">Original (full resolution)</a>
+					data-filename="<?php echo $hash . "-full.jpg"; ?>">Original (full resolution)</a>
 				<div class="dropdown-divider"></div>
 				<p class="px-4 py-1 mb-0 small">Please see Rights statement below for usage guidelines</p>
 
