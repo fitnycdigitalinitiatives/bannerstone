@@ -89,7 +89,7 @@ class OpenSeadragon
         $small_image = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/full/400,/0/default.jpg";
         $medium_image = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/full/800,/0/default.jpg";
         $large_image = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/full/1600,/0/default.jpg";
-        $original_image = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/full/full/0/default.jpg";
+        $original_image = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/full/max/0/default.jpg";
         $info_json_url = $iiifEndpoint . str_replace("/", "%2F", substr($key, 0, -4)) . "/info.json";
         $html .= get_view()->partial('common/openseadragon.php', array('info_json_url' => $info_json_url, 'hash' => substr($path_parts['filename'], 37), 'panel_id' => $panel_id, 'static_image' => $static_image, 'small_image' => $small_image, 'medium_image' => $medium_image, 'large_image' => $large_image, 'original_image' => $original_image));
         $panel_id++;
