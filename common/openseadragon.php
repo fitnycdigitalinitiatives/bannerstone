@@ -2,8 +2,8 @@
 <?php $unique_id = "openseadragon_" . hash("md4", html_escape($hash)); ?>
 <div class="justify-content-center tab-pane fade <?php if ($panel_id == 1) {
 	echo 'show active';
-} ?>"
-	id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel" aria-labelledby="image-panel-<?php echo $panel_id; ?>">
+} ?>" id="openseadragon-<?php echo $panel_id; ?>" role="tabpanel"
+	aria-labelledby="image-panel-<?php echo $panel_id; ?>">
 	<div id="static-image-wrapper">
 		<img class="os-static-image" src="<?php echo $static_image; ?>"
 			id="openseadragon-image-<?php echo $panel_id; ?>" alt="Bannerstone view <?php echo $hash; ?>" />
@@ -14,14 +14,16 @@
 				<span class="sr-only">Download Image</span>
 			</button>
 			<div class="dropdown-menu" aria-labelledby="<?php echo $hash; ?>">
-				<a class="dropdown-item small" href="<?php echo $small_image; ?>" download="<?php echo $hash; ?>">Small
+				<a class="dropdown-item small download" href="<?php echo $small_image; ?>"
+					data-filename="<?php echo $hash . ".jpg"; ?>">Small
 					(400px)</a>
-				<a class="dropdown-item small" href="<?php echo $medium_image; ?>"
-					download="<?php echo $hash; ?>">Medium (800px)</a>
-				<a class="dropdown-item small" href="<?php echo $large_image; ?>" download="<?php echo $hash; ?>">Large
+				<a class="dropdown-item small download" href="<?php echo $medium_image; ?>"
+					data-filename="<?php echo $hash . ".jpg"; ?>">Medium (800px)</a>
+				<a class="dropdown-item small download" href="<?php echo $large_image; ?>"
+					data-filename="<?php echo $hash . ".jpg"; ?>">Large
 					(1600px)</a>
-				<a class="dropdown-item small" href="<?php echo $original_image; ?>"
-					download="<?php echo $hash; ?>">Original (full resolution)</a>
+				<a class="dropdown-item small download" href="<?php echo $original_image; ?>"
+					data-filename="<?php echo $hash . ".jpg"; ?>">Original (full resolution)</a>
 				<div class="dropdown-divider"></div>
 				<p class="px-4 py-1 mb-0 small">Please see Rights statement below for usage guidelines</p>
 
@@ -50,6 +52,12 @@
 					$('#<?php echo $unique_id; ?>').css('background-image', 'none');
 				};
 				viewer.addHandler('tile-drawn', tileDrawnHandler);
+			});
+
+			// Force download of file rather than going to page
+			$(".download").on("click", function (event) {
+				event.preventDefault();
+				saveAs($(this).attr("href"), $(this).data("filename"));
 			});
 		</script>
 	</div>
