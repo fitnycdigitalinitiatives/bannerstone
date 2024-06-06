@@ -97,6 +97,15 @@ class OpenSeadragon
       $html .= $this->openseadragon_create_buttons();
       $html .= '</div>';
       $html .= '</div>';
+      $html .= <<<EOT
+      <script>
+      // Force download of file rather than going to page
+			$(".download").on("click", function (event) {
+				event.preventDefault();
+				saveAs($(this).attr("href"), $(this).data("filename"));
+			});
+      </script>
+EOT;
       return $html;
     } elseif (($fitdil_data_json_array = metadata($item, array('Item Type Metadata', 'fitdil_data'), array('all' => true))) && ($github_collection = metadata($item, array('Item Type Metadata', 'github_collection')))) {
       $collection = metadata($item, 'Collection Name');
@@ -128,6 +137,15 @@ class OpenSeadragon
       $html .= $this->openseadragon_create_buttons();
       $html .= '</div>';
       $html .= '</div>';
+      $html .= <<<EOT
+      <script>
+      // Force download of file rather than going to page
+			$(".download").on("click", function (event) {
+				event.preventDefault();
+				saveAs($(this).attr("href"), $(this).data("filename"));
+			});
+      </script>
+EOT;
       return $html;
     }
   }
