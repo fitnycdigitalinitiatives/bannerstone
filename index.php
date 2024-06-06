@@ -77,7 +77,7 @@
       </section>
       <section id="images">
         <h1 class="text-center mb-4">Images and Resources on this Website</h1>
-        <p>All images on the ABP (Archaic Bannerstone Project) under the Bannerstone Tab may be freely downloaded,
+        <p>All images on the Bannerstone Project under the Bannerstone Tab may be freely downloaded,
           shared, and reused for non-commercial purposes with proper attribution. Please attribute photographs to Anna
           Blume (unless otherwise indicated) and review the separate credit line details under Collections.</p>
         <p>Under the Bannerstone tab all images are available alphabetized by collection. Under the Collection Tab you
@@ -87,7 +87,7 @@
           identified by the name of the collection and the catalog or accession number. For instance (AMNH 1/1821)
           refers to a specific quartz butterfly bannerstone in the American Museum of Natural History. All web essays
           and resources under the Resource Tab are also available for download.</p>
-        <p>For publishing questions or general suggestions regarding the ABP, contact <a
+        <p>For publishing questions or general suggestions regarding the Bannerstone Project, contact <a
             href="mailto:bannerstone@fitnyc.edu">bannerstone@fitnyc.edu</a>.</p>
       </section>
       <section id="team">
@@ -101,7 +101,7 @@
             Philosophical Society</em> in 2009, and a study of ancient monumental art along the Mississippi published in
           <em>RES: A Journal of Anthropology and Aesthetics</em> in 2018. Professor Blume began an ongoing in-depth
           study of Bannerstones in 2016 working with the American Museum of Natural History collection of 462 stones.
-          The Archaic Bannerstone Project was conceived by her as a way to bring these important carved stones to as
+          The Bannerstone Project was conceived by her as a way to bring these important carved stones to as
           broad a public as possible, to reveal the deep history of the creative imagination of the indigenous people of
           eastern North America.
         </p>
@@ -122,7 +122,7 @@
         <h2>Metadata Coordinator</h2>
         <p>
           <strong>Molly Schoen</strong>, MLIS, Visual Resources Curator at the Fashion Institute of Technology, State
-          University of New York. Her role in the Archaic Bannerstone Project involves creating and updating image
+          University of New York. Her role in the Bannerstone Project involves creating and updating image
           metadata records, as well as general editing of text. In her position as Visual Resources Curator, she assists
           History of Art faculty with their research, technology, and image needs, and she maintains a large collection
           of art images for FITDIL, the FIT Digital Image Library. She has also published in several journals and books,
@@ -134,7 +134,7 @@
           Technology, State University of New York. He works closely with the Visual Resources Curator in digitizing
           teaching materials for the History of Art Department faculty members, as well as images for the Art History
           Collection on FITDIL. His decades-old expertise in color correction and digital manipulation played an
-          important role in assisting the Project Director with fine tuning all the images in The Archaic Bannerstone
+          important role in assisting the Project Director with fine tuning all the images in The Bannerstone
           Project.
         </p>
       </section>
