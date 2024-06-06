@@ -37,7 +37,8 @@
       <section id="introduction">
         <h1 class="text-center mb-4">Introduction</h1>
         <p>The <strong>B</strong>annerstone <strong>P</strong>roject is a resource for the
-          study of the aesthetically complex, anomalous ancient Indigenous North American lithics known as bannerstones.
+          study of the aesthetically complex, anomalous ancient Indigenous North American lithics known as bannerstones
+          that were made between 6,000 - 1,000 BCE.
           Finely
           composed, carved, and polished works are usually associated with luxury items for a ruling elite.
           Bannerstones, however, were made within distinctly egalitarian societies raising questions about who made
@@ -45,7 +46,7 @@
         <p>To engage with these and other questions we have created this open-source website to bring bannerstone
           awareness and study to the broadest range of people. Included on this site are a bannerstone typology,
           high-quality images, a glossary, a bibliography, and a vast array of out-of-print or difficult to find texts
-          relevant to bannerstone study. Also included are suggested metrics to better standardize the study of
+          relevant to bannerstone study. Also included are suggested metrics for the study of
           bannerstones in public and private collections as well as a suggested guide for photographic practices.</p>
         <p>Learning to see, study, and value the art and technology of bannerstones will bring us closer to the lived
           lives of ancient Native Americans of Eastern North America. This study, awareness, and appreciation of Ancient
