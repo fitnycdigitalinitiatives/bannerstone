@@ -10,8 +10,9 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'items tags'));
       <p class="px-3 mb-4">
         The Bannerstone Project distinguishes 24 bannerstone types based on terms established by Byron Knoblock in his
         1939 text <em>Banner-stones of the North American Indian</em>. Below, bannerstones can be browsed by these types
-        and sub-types. As more collections are photographed and added to this ABP site we hope to include examples of
-        all 24 types.
+        and sub-types. As more collections are photographed and added to this site we hope to include examples of
+        all 24 types. And though this typology can be helpful in our discussion of bannerstones, we recognize that each
+        stone is a unique one-of-kind carving.
       </p>
 
       <ul class="leaders mb-4">
