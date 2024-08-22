@@ -380,6 +380,13 @@ ul.leaders span+span {
   object-fit: cover;
 }
 
+.browse .card-deck .card .nagpra {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, .125);
+  background-color: #f3f3f3;
+  font-size: 0.875rem;
+}
+
 .browse .card-deck .card .card-title {
   white-space: nowrap;
   overflow: hidden;

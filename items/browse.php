@@ -1,6 +1,6 @@
 <?php
-    $pageTitle = __('Browse Items');
-    echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
+$pageTitle = __('Browse Items');
+echo head(array('title' => $pageTitle, 'bodyclass' => 'items browse'));
 ?>
 
 <div class="container" id="grid">
@@ -9,10 +9,10 @@
     <!-- Header -->
     <?php if ($isfb = item_search_filters_bootstrap()): ?>
       <h1 class="text-center mb-5">
-        Showing <?php echo $total_results; ?> <?php echo ($total_results > 1 ? 'bannerstones' : 'bannerstone'); ?>
+        Showing <?php echo $total_results; ?>     <?php echo ($total_results > 1 ? 'bannerstones' : 'bannerstone'); ?>
         <br />
-         <small class="text-muted"><em><?php echo $isfb; ?></em></small>
-       </h1>
+        <small class="text-muted"><em><?php echo $isfb; ?></em></small>
+      </h1>
     <?php else: ?>
       <h1 class="text-center mb-5">Showing <?php echo $total_results; ?> bannerstones total</h1>
     <?php endif; ?>
@@ -24,10 +24,15 @@
         <div class="card">
           <a class="text-dark" href="<?php echo record_url($item, null, true); ?>">
             <div class="card-push"></div>
-            <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>" alt="Bannerstone <?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
+            <?php if (strtolower(metadata($item, ['Item Type Metadata', 'NAGPRA'])) == "true"): ?>
+              <div class="nagpra text-center p-3">Bannerstone Temporarily Removed Pending Tribal Perspectives</div>
+            <?php else: ?>
+              <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>"
+                alt="Bannerstone <?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
+            <?php endif; ?>
             <div class="card-push"></div>
             <h3 class="card-title text-center"><?php echo metadata($item, array('Dublin Core', 'Title')); ?></h3>
-            <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+            <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' => $item)); ?>
           </a>
         </div>
       <?php endforeach; ?>
@@ -42,8 +47,8 @@
         <?php echo output_format_list(false); ?>
     </div> -->
 
-  <!-- No Results -->
-  <?php else : ?>
+    <!-- No Results -->
+  <?php else: ?>
     <div class="row justify-content-md-center">
       <div class="col-md-6">
         <h1 class="text-center mb-4"><?php echo 'No results'; ?></h1>
@@ -57,5 +62,5 @@
 </div>
 
 
-<?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
+<?php fire_plugin_hook('public_items_browse', array('items' => $items, 'view' => $this)); ?>
 <?php echo foot(); ?>
