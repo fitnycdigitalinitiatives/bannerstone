@@ -9,7 +9,7 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'items browse'));
     <!-- Header -->
     <?php if ($isfb = item_search_filters_bootstrap()): ?>
       <h1 class="text-center mb-5">
-        Showing <?php echo $total_results; ?>     <?php echo ($total_results > 1 ? 'bannerstones' : 'bannerstone'); ?>
+        Showing <?php echo $total_results; ?> <?php echo ($total_results > 1 ? 'bannerstones' : 'bannerstone'); ?>
         <br />
         <small class="text-muted"><em><?php echo $isfb; ?></em></small>
       </h1>
@@ -25,7 +25,9 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'items browse'));
           <a class="text-dark" href="<?php echo record_url($item, null, true); ?>">
             <div class="card-push"></div>
             <?php if (strtolower(metadata($item, ['Item Type Metadata', 'NAGPRA'])) == "true"): ?>
-              <div class="nagpra text-center p-3">Bannerstone Temporarily Removed Pending Tribal Perspectives</div>
+              <div class="nagpra text-center p-3">
+                Bannerstone Found in a Burial Site Removed Upon the Request of The Seminole Tribe of Florida
+              </div>
             <?php else: ?>
               <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>"
                 alt="Bannerstone <?php echo metadata($item, array('Dublin Core', 'Title')); ?>">
