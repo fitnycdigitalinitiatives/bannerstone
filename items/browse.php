@@ -26,7 +26,7 @@ echo head(array('title' => $pageTitle, 'bodyclass' => 'items browse'));
             <div class="card-push"></div>
             <?php if (strtolower(metadata($item, ['Item Type Metadata', 'NAGPRA'])) == "true"): ?>
               <div class="nagpra text-center p-3">
-                Bannerstone Found in a Burial Site Removed Upon the Request of The Seminole Tribe of Florida
+                Bannerstone Found in a Burial Site Respectfully Removed Upon the Request of The Seminole Tribe of Florida
               </div>
             <?php else: ?>
               <img class="card-img" src="<?php echo thumbnail_url($item, 1); ?>"
